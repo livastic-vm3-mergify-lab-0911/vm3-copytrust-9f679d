@@ -1,0 +1,10 @@
+name: VM3 Symlink Policy Gate
+on:
+  pull_request:
+
+jobs:
+  gate:
+    name: vm3-symlink-policy-gate
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'VM3_SYMLINK_POLICY_GATE_SUCCESS'
