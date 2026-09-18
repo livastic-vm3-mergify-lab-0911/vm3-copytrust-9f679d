@@ -17,3 +17,10 @@ pull_request_rules:
       label:
         add:
           - vm3-symlink-config-guard-passed-260918
+  - name: VM3 TREATMENT PROVES EFFECTIVE CONFIG TARGET CHANGED
+    conditions:
+      - title = VM3 NEVER MATCH EFFECTIVE TARGET 260918
+    actions:
+      label:
+        add:
+          - vm3-symlink-config-guard-passed-260918
