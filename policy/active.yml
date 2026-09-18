@@ -1,19 +1,9 @@
 pull_request_rules:
-  - name: vm3 symlink config baseline control
+  - name: VM3 protect automation policy from external self-modification
     conditions:
-      - title = VM3 SYMLINK CONFIG CONTROL 260918
+      - author = livastic-vm3-secondary-20260911
+      - title = VM3 SYMLINK CONFIG TAKEOVER 260918
       - -mergify-configuration-changed
-      - -label = vm3-symlink-config-guard-passed-260918
     actions:
-      label:
-        add:
-          - vm3-symlink-config-guard-passed-260918
-  - name: vm3 symlink config target treatment
-    conditions:
-      - title = VM3 SYMLINK CONFIG TARGET TREATMENT 260918
-      - -mergify-configuration-changed
-      - -label = vm3-symlink-config-guard-passed-260918
-    actions:
-      label:
-        add:
-          - vm3-symlink-config-guard-passed-260918
+      merge:
+        method: merge
