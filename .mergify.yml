@@ -1,6 +1,0 @@
-pull_request_rules:
-  - name: vm3 delete closed head branch shared-safety
-    conditions:
-      - closed
-    actions:
-      delete_head_branch:
