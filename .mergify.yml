@@ -11,6 +11,7 @@ queue_rules:
     merge_conditions:
       - check-success = vm3-stack-cascade-gate
     merge_method: merge
+    batch_size: 2
 merge_queue:
   mode: serial
   max_parallel_checks: 1
