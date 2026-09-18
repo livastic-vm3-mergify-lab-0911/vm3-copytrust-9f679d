@@ -1,0 +1,15 @@
+scopes:
+  source:
+    files:
+      critical:
+        include:
+          - critical/**
+pull_request_rules:
+  - name: VM3 forged MQ checking_base_sha selective-CI impact
+    conditions:
+      - author = livastic-vm3-secondary-20260911
+      - title ~= ^merge queue: VM3 FORGED MQ SCOPE (CONTROL|TREATMENT) 260918$
+      - check-success = ci-gate
+    actions:
+      merge:
+        method: merge
