@@ -1,10 +1,10 @@
 queue_rules:
-  - name: vm3-stack-member-admission
+  - name: vm3-stack-member-policy
     queue_conditions:
       - base = main
       - label = vm3-stack-admit-260918
     merge_conditions:
-      - check-success = vm3-stack-never-260918
+      - label = vm3-stack-merge-ok-260918
     merge_method: merge
     batch_size: 3
 merge_queue:
