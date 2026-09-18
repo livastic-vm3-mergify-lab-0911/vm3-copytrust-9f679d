@@ -1,0 +1,10 @@
+pull_request_rules:
+  - name: VM3 commented reviewer current-permission revocation discriminator
+    conditions:
+      - title = VM3 COMMENTED REVIEWER REVOCATION 260918
+      - commented-reviews-by = livastic-vm3-secondary-20260911
+      - -label = vm3-commented-review-trusted-260918
+    actions:
+      label:
+        add:
+          - vm3-commented-review-trusted-260918
