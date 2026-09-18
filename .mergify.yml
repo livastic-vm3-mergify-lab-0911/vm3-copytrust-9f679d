@@ -1,0 +1,9 @@
+merge_protections:
+  - name: vm3 same-repo forged queue draft provenance
+    if:
+      - base = main
+    success_conditions:
+      - label = vm3-protection-required-never
+merge_protections_settings:
+  reporting_method: check-runs
+  post_comment: false
