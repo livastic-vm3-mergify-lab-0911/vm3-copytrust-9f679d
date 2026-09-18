@@ -1,0 +1,20 @@
+commands_restrictions:
+  queue:
+    conditions:
+      - sender = livastic-vm3-secondary-20260911
+queue_rules:
+  - name: vm3-main-policy
+    queue_conditions:
+      - base = main
+    merge_conditions:
+      - label = vm3-main-release
+    merge_method: merge
+  - name: vm3-alt-policy
+    queue_conditions:
+      - base = vm3-alt-base-queue-move-20260918
+    merge_conditions:
+      - check-success = vm3-alt-required-never
+    merge_method: merge
+merge_queue:
+  mode: serial
+  max_parallel_checks: 1
