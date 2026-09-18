@@ -1,10 +1,12 @@
 scopes:
-  critical-scope:
-    patterns:
-      - critical/**
-  safe-scope:
-    patterns:
-      - safe/**
+  source:
+    files:
+      critical-scope:
+        include:
+          - critical/**
+      safe-scope:
+        include:
+          - safe/**
 pull_request_rules:
   - name: vm3 rename old path must retain critical scope
     conditions:
