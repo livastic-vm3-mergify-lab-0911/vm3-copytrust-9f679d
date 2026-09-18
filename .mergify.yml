@@ -1,0 +1,18 @@
+commands_restrictions:
+  queue:
+    conditions:
+      - sender = livastic-vm3-primary-20260911
+  dequeue:
+    conditions:
+      - sender = livastic-vm3-primary-20260911
+queue_rules:
+  - name: vm3-merge-batch-headfresh
+    queue_conditions:
+      - base = vm3-merge-batch-headfresh-target-20260918
+    merge_conditions:
+      - check-success = vm3-merge-batch-headfresh-gate
+    merge_method: merge-batch
+    batch_size: 2
+merge_queue:
+  mode: serial
+  max_parallel_checks: 1
