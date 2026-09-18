@@ -1,0 +1,12 @@
+name: VM3 Queue Base Change Gate
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  gate:
+    name: vm3-main-gate
+    if: startsWith(github.head_ref, 'mergify/merge-queue/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hold old train long enough for controlled base change
+        run: sleep 45
