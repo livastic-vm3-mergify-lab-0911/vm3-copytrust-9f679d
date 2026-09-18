@@ -1,0 +1,14 @@
+commands_restrictions:
+  queue:
+    conditions:
+      - sender = livastic-vm3-secondary-20260911
+queue_rules:
+  - name: vm3-draft-fast-forward
+    queue_conditions:
+      - base = vm3-draft-ff-target-20260918
+    merge_conditions:
+      - check-success = vm3-draft-ff-gate
+    merge_method: fast-forward
+merge_queue:
+  mode: serial
+  max_parallel_checks: 1
