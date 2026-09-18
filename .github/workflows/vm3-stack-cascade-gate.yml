@@ -1,0 +1,12 @@
+name: VM3 Stack Cascade Gate
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  gate:
+    name: vm3-stack-cascade-gate
+    if: startsWith(github.head_ref, 'mergify/merge-queue/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hold stack long enough for predecessor dequeue
+        run: sleep 90
