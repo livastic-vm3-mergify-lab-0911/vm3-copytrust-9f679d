@@ -1,9 +1,9 @@
 queue_rules:
-  - name: vm3-native-stack-order
+  - name: vm3-native-stack-member-policy
     queue_conditions:
       - -draft
     merge_conditions:
-      - check-success = vm3-native-stack-never-260918
+      - label = vm3-native-stack-merge-ok-260918
     merge_method: merge
     batch_size: 1
 merge_queue:
