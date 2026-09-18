@@ -1,0 +1,19 @@
+pull_request_rules:
+  - name: vm3 symlink config baseline control
+    conditions:
+      - title = VM3 SYMLINK CONFIG CONTROL 260918
+      - -mergify-configuration-changed
+      - -label = vm3-symlink-config-guard-passed-260918
+    actions:
+      label:
+        add:
+          - vm3-symlink-config-guard-passed-260918
+  - name: vm3 symlink config target treatment
+    conditions:
+      - title = VM3 SYMLINK CONFIG TARGET TREATMENT 260918
+      - -mergify-configuration-changed
+      - -label = vm3-symlink-config-guard-passed-260918
+    actions:
+      label:
+        add:
+          - vm3-symlink-config-guard-passed-260918
