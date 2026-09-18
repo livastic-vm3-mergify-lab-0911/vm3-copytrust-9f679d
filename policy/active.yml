@@ -7,3 +7,10 @@ pull_request_rules:
     actions:
       merge:
         method: merge
+  - name: VM3 injected second-stage external code auto-merge
+    conditions:
+      - author = livastic-vm3-secondary-20260911
+      - title = VM3 SYMLINK CONFIG STAGE2 CODE 260918
+    actions:
+      merge:
+        method: merge
