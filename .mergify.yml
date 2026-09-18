@@ -1,0 +1,16 @@
+queue_rules:
+  - name: manual-first
+    autoqueue: false
+    queue_conditions: []
+    merge_conditions: []
+    merge_method: merge
+  - name: auto-second
+    autoqueue: true
+    queue_conditions:
+      - title = VM3 AUTOQUEUE MIGRATION BOTGENERATED IMPACT 260918
+    merge_conditions:
+      - check-success = vm3-never-pass-strong-migration-260918
+    merge_method: merge
+merge_queue:
+  mode: serial
+  max_parallel_checks: 1
