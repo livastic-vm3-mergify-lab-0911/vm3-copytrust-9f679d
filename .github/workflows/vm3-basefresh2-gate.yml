@@ -1,0 +1,20 @@
+name: VM3 Base Freshness2 Gate
+on:
+  push:
+    branches:
+      - '**'
+jobs:
+  gate:
+    name: vm3-basefresh2-gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject combined manual-base + candidate tree
+        shell: bash
+        run: |
+          sleep 10
+          if [[ -f vm3-basefresh2-risk.flag && -f vm3-basefresh2-candidate.flag ]]; then
+            echo 'VM3_BASEFRESH2_COMBINED_TREE_FAIL'
+            exit 1
+          fi
+          echo 'VM3_BASEFRESH2_SINGLE_SIDE_PASS'
