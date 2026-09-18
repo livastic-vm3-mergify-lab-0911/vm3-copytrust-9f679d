@@ -1,0 +1,12 @@
+name: VM3 Retarget A Gate
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  gate:
+    name: vm3-retarget-a-gate
+    if: startsWith(github.head_ref, 'mergify/merge-queue/') && github.base_ref == 'vm3-retarget-a-20260918'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hold old-A batch while original PR is retargeted
+        run: sleep 60
