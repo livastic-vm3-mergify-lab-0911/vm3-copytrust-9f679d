@@ -1,0 +1,12 @@
+merge_protections_settings:
+  reporting_method: check-runs
+  post_comment: true
+  auto_merge_conditions:
+    - label = vm3-auto-merge-ready-260918
+
+merge_protections:
+  - name: VM3 auto-merge condition revocation gate
+    if:
+      - base = main
+    success_conditions:
+      - check-success = vm3-auto-merge-hold-260918
