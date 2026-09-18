@@ -16,9 +16,9 @@ scopes:
           - .mergify.yml
           - .github/workflows/**
 queue_rules:
-  - name: vm3-direct-merge-provenance
+  - name: vm3-direct-merge-provenance-main
     queue_conditions:
-      - base ~= ^vm3-direct-(control|treatment)-target-20260918$
+      - base = main
     merge_conditions:
       - check-success = vm3-direct-merge-guard
     merge_method: merge
