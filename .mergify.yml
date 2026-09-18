@@ -7,7 +7,7 @@ queue_rules:
     queue_conditions:
       - base = main
     merge_conditions:
-      - label = vm3-main-release
+      - check-success = vm3-main-gate
     merge_method: merge
   - name: vm3-alt-policy
     queue_conditions:
