@@ -1,0 +1,12 @@
+commands_restrictions:
+  queue:
+    conditions:
+      - sender = livastic-vm3-primary-20260911
+queue_rules:
+  - name: vm3-create-flag-parity
+    queue_conditions: []
+    merge_conditions: []
+    merge_method: merge
+merge_queue:
+  mode: serial
+  max_parallel_checks: 1
