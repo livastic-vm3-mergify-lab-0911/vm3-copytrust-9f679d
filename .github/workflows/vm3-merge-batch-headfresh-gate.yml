@@ -1,0 +1,12 @@
+name: VM3 Merge Batch Head Freshness Gate
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  gate:
+    name: vm3-merge-batch-headfresh-gate
+    if: startsWith(github.head_ref, 'mergify/merge-queue/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Controlled batch validation
+        run: sleep 35
