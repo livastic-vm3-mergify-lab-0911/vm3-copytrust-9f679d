@@ -1,0 +1,10 @@
+pull_request_rules:
+  - name: VM3 files pagination critical-tail guard
+    conditions:
+      - title = VM3 FILES PAGINATION TAIL 260918
+      - -files ~= ^zz-critical/
+      - -label = vm3-files-tail-missed-260918
+    actions:
+      label:
+        add:
+          - vm3-files-tail-missed-260918
