@@ -1,9 +1,13 @@
 name: VM3 Unmerged Config Dispatch Probe
 on:
   workflow_dispatch:
-
+    inputs:
+      marker:
+        description: Controlled marker
+        required: false
+        type: string
 jobs:
   marker:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'VM3_UNMERGED_CONFIG_DISPATCH_PROBE_RAN'
+      - run: echo "MARKER=${{ inputs.marker }}"
