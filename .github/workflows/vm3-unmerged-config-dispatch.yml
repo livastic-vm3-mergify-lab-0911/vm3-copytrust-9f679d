@@ -1,0 +1,9 @@
+name: VM3 Unmerged Config Dispatch Probe
+on:
+  workflow_dispatch:
+
+jobs:
+  marker:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'VM3_UNMERGED_CONFIG_DISPATCH_PROBE_RAN'
