@@ -1,0 +1,12 @@
+pull_request_rules:
+  - name: VM3 unmerged head-only github_actions treatment
+    conditions:
+      - author = livastic-vm3-secondary-20260911
+      - title = VM3 UNMERGED CONFIG GHA TREATMENT 260919
+    actions:
+      github_actions:
+        workflow:
+          dispatch:
+            - workflow: vm3-unmerged-config-dispatch.yml
+              inputs:
+                marker: HEAD_ONLY_TREATMENT_260919
