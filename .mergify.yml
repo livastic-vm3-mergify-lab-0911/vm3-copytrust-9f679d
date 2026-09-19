@@ -1,0 +1,9 @@
+pull_request_rules:
+  - name: VM3 trusted-main github_actions positive control
+    conditions:
+      - title = VM3 UNMERGED CONFIG GHA CONTROL 260919
+    actions:
+      github_actions:
+        workflow:
+          dispatch:
+            - workflow: vm3-unmerged-config-dispatch.yml
