@@ -1,9 +1,0 @@
-pull_request_rules:
-  - name: VM3 trusted reviewer login policy
-    conditions:
-      - base = vm3-reviewer-reuse-base-260920
-      - approved-reviews-by = livastic-vm3-primary-20260911
-      - check-success = vm3-reviewer-reuse-gate
-    actions:
-      merge:
-        method: merge
