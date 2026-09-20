@@ -1,0 +1,10 @@
+name: VM3 Reviewer Reuse Gate
+on:
+  pull_request:
+
+jobs:
+  gate:
+    name: vm3-reviewer-reuse-gate
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo VM3_REVIEWER_REUSE_GATE_SUCCESS
