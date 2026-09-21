@@ -1,17 +1,25 @@
 pull_request_rules:
-  - name: VM3 team changes-requested positive 260922
+  - name: VM3 changes requested direct user R2 260922
+    conditions:
+      - title = VM3 TEAM CHANGES REQUESTED 260922
+      - changes-requested-reviews-by = livastic-vm3-secondary-20260911
+    actions:
+      label:
+        add:
+          - vm3-changes-direct-user-r2-260922
+  - name: VM3 changes requested team short R2 260922
     conditions:
       - title = VM3 TEAM CHANGES REQUESTED 260922
       - changes-requested-reviews-by = @vm3-author-team-260919
     actions:
       label:
         add:
-          - vm3-team-changes-positive-260922
-  - name: VM3 team changes-requested negative 260922
+          - vm3-changes-team-short-r2-260922
+  - name: VM3 changes requested team full R2 260922
     conditions:
       - title = VM3 TEAM CHANGES REQUESTED 260922
-      - -changes-requested-reviews-by = @vm3-author-team-260919
+      - changes-requested-reviews-by = @livastic-vm3-mergify-lab-0911/vm3-author-team-260919
     actions:
       label:
         add:
-          - vm3-team-changes-negative-260922
+          - vm3-changes-team-full-r2-260922
