@@ -1,0 +1,9 @@
+pull_request_rules:
+  - name: VM3 open PR backport guard 260922
+    conditions:
+      - title = VM3 OPEN BACKPORT GUARD 260922
+    actions:
+      backport:
+        branches:
+          - vm3-backport-dest-260922
+        title: "VM3 controlled backport of #{{ number }}"
