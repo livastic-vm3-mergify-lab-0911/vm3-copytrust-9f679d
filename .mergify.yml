@@ -1,0 +1,19 @@
+merge_queue:
+  mode: serial
+  max_parallel_checks: 1
+  queued_label: null
+  dequeued_label: null
+  status_comments: outcomes
+queue_rules:
+  - name: vm3-inplace-prrule-wait-260922
+    batch_size: 1
+    max_checks_retries: 0
+    update_method: merge
+pull_request_rules:
+  - name: VM3 in-place PR rule wait gate 260922
+    conditions:
+      - title = VM3 INPLACE PRRULE WAIT 260922
+      - check-success = vm3-security-gate
+    actions:
+      queue:
+        name: vm3-inplace-prrule-wait-260922
