@@ -1,0 +1,17 @@
+pull_request_rules:
+  - name: VM3 team changes-requested positive 260922
+    conditions:
+      - title = VM3 TEAM CHANGES REQUESTED 260922
+      - changes-requested-reviews-by = @vm3-author-team-260919
+    actions:
+      label:
+        add:
+          - vm3-team-changes-positive-260922
+  - name: VM3 team changes-requested negative 260922
+    conditions:
+      - title = VM3 TEAM CHANGES REQUESTED 260922
+      - -changes-requested-reviews-by = @vm3-author-team-260919
+    actions:
+      label:
+        add:
+          - vm3-team-changes-negative-260922
