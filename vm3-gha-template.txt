@@ -1,0 +1,1 @@
+vm3 gha simple-template discriminator
