@@ -1,0 +1,12 @@
+scopes:
+  source:
+    manual:
+merge_protections:
+  - name: VM3 critical scope must carry sentinel label
+    if:
+      - scope = critical
+    success_conditions:
+      - label = vm3-mp-never-pass-260922
+merge_protections_settings:
+  reporting_method: check-runs
+  post_comment: true
