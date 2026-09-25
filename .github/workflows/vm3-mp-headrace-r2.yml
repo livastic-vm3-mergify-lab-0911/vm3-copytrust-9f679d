@@ -1,0 +1,24 @@
+name: VM3 MP headrace guard R2
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  vm3-mp-headrace-guard-r2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Gate current PR revision
+        shell: bash
+        run: |
+          if [ -f vm3-mp-headrace-danger-r2.txt ]; then
+            echo "VM3_MP_H1_DANGER_CURRENT_REVISION"
+            sleep 300
+            exit 1
+          fi
+          echo "VM3_MP_H0_SAFE_SUCCESS"
