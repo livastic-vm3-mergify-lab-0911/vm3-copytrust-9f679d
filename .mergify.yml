@@ -23,16 +23,3 @@ pull_request_rules:
       label:
         add:
           - vm3-changes-team-full-r2-260922
-
-merge_protections_settings:
-  reporting_method: check-runs
-  post_comment: true
-  auto_merge_conditions: true
-
-merge_protections:
-  - name: VM3 MP head revision freshness 260925
-    if:
-      - base = main
-      - title = VM3 MP HEAD RACE 260925
-    success_conditions:
-      - check-success = vm3-mp-headrace-gate-260925
