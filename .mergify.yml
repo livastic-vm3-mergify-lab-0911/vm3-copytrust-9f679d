@@ -23,3 +23,28 @@ pull_request_rules:
       label:
         add:
           - vm3-changes-team-full-r2-260922
+
+scopes:
+  source:
+    files:
+      security-critical:
+        include:
+          - 'vm3-mp-scope-probe.txt'
+  capacities:
+    'security-*': 1
+
+merge_queue:
+  mode: parallel
+  max_parallel_checks: 2
+
+queue_rules:
+  - name: vm3-freeze-picker-impact-260929
+    queue_conditions:
+      - title = VM3 MP FUTURE SCOPE CRITICAL 260922
+    merge_conditions: []
+    merge_method: merge
+    batch_size: 1
+
+merge_protections_settings:
+  auto_merge_conditions:
+    - title = VM3 MP FUTURE SCOPE CRITICAL 260922
