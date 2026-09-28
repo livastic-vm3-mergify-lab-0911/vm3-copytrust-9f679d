@@ -30,3 +30,12 @@ pull_request_rules:
       - "#commits-behind >= 1"
     actions:
       update:
+  - name: VM3 KPU seed copy 260929
+    conditions:
+      - title = VM3 KPU SEED COPY 260929
+    actions:
+      copy:
+        branches:
+          - main
+        title: "VM3 KPU COPY SEED {{ number }}"
+        body: "Controlled VM3 copy seed."
