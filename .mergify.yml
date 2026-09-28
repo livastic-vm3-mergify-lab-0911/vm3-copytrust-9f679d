@@ -23,3 +23,10 @@ pull_request_rules:
       label:
         add:
           - vm3-changes-team-full-r2-260922
+
+  - name: Keep PRs up to date
+    conditions:
+      - -draft
+      - "#commits-behind >= 1"
+    actions:
+      update:
