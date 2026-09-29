@@ -28,7 +28,7 @@ merge_protections_settings:
   reporting_method: check-runs
   post_comment: true
   auto_merge_conditions:
-    - title = VM3 DISABLED AUTO MERGE 260930 NEVER
+    - body = VM3_MP_HEADRACE_RELEASE_260925_R2
 
 merge_protections:
   - name: VM3 Merge Protections head freshness R2 260925
@@ -37,13 +37,3 @@ merge_protections:
       - title = VM3 MP HEADRACE 260925 R2
     success_conditions:
       - check-success = vm3-mp-headrace-guard-r2
-
-scopes:
-  source:
-    manual:
-  capacities:
-    'security-*': 1
-
-merge_queue:
-  mode: parallel
-  max_parallel_checks: 2
