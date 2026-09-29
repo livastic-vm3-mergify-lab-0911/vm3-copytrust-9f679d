@@ -61,4 +61,5 @@ queue_rules:
       - base = main
     merge_conditions:
       - check-success = vm3-configbar-release-260929
+      - label = vm3-security-approved-260929
     merge_method: merge
