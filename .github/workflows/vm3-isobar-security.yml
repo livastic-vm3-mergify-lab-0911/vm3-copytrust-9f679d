@@ -24,8 +24,4 @@ jobs:
             echo 'VM3_ISOBAR_SECURITY_BLOCK: enforce mode rejects ordinary/attack.txt'
             exit 1
           fi
-          if [ "$mode" = "legacy" ] && [ -f ordinary/attack.txt ]; then
-            echo 'VM3_ISOBAR_DELAY_OLD_EXTERNAL_BATCH'
-            sleep 45
-          fi
           echo "VM3_ISOBAR_SECURITY_PASS mode=$mode"
