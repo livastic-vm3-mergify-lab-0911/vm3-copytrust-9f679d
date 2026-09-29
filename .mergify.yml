@@ -43,3 +43,7 @@ scopes:
   capacities:
     'security-*': 1
 
+merge_queue:
+  mode: parallel
+  max_parallel_checks: 2
+
