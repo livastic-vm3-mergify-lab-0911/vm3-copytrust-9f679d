@@ -28,7 +28,8 @@ merge_protections_settings:
   reporting_method: check-runs
   post_comment: true
   auto_merge_conditions:
-    - body = VM3_MP_HEADRACE_RELEASE_260925_R2
+    - title = VM3 MANUAL CAPACITY CONTROL 260930
+    - scope != security-critical
 
 merge_protections:
   - name: VM3 Merge Protections head freshness R2 260925
@@ -37,6 +38,13 @@ merge_protections:
       - title = VM3 MP HEADRACE 260925 R2
     success_conditions:
       - check-success = vm3-mp-headrace-guard-r2
+  - name: VM3 manual capacity literal control 260930
+    if:
+      - title = VM3 MANUAL CAPACITY CONTROL 260930
+      - scope = security-critical
+    success_conditions:
+      - check-success = vm3-manual-capacity-never-260930
+
 scopes:
   source:
     manual:
@@ -46,4 +54,3 @@ scopes:
 merge_queue:
   mode: parallel
   max_parallel_checks: 2
-
