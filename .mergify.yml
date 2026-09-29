@@ -37,3 +37,9 @@ merge_protections:
       - title = VM3 MP HEADRACE 260925 R2
     success_conditions:
       - check-success = vm3-mp-headrace-guard-r2
+scopes:
+  source:
+    manual:
+  capacities:
+    'security-*': 1
+
