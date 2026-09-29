@@ -28,9 +28,7 @@ merge_protections_settings:
   reporting_method: check-runs
   post_comment: true
   auto_merge_conditions:
-    - title = VM3 TEAM PICKER CONTROL 260930
-    - review-requested != @vm3-security-reviewers-260930
-    - review-requested != @livastic-vm3-mergify-lab-0911/vm3-security-reviewers-260930
+    - title = VM3 DISABLED AUTO MERGE 260930 NEVER
 
 merge_protections:
   - name: VM3 Merge Protections head freshness R2 260925
@@ -39,24 +37,6 @@ merge_protections:
       - title = VM3 MP HEADRACE 260925 R2
     success_conditions:
       - check-success = vm3-mp-headrace-guard-r2
-  - name: VM3 manual capacity glob treatment 260930
-    if:
-      - title = VM3 MANUAL CAPACITY CONTROL 260930
-      - scope = security-*
-    success_conditions:
-      - check-success = vm3-manual-capacity-never-260930
-  - name: VM3 team picker short slug control 260930
-    if:
-      - title = VM3 TEAM PICKER CONTROL 260930
-      - review-requested = @vm3-security-reviewers-260930
-    success_conditions:
-      - check-success = vm3-team-picker-never-short-260930
-  - name: VM3 team picker full slug control 260930
-    if:
-      - title = VM3 TEAM PICKER CONTROL 260930
-      - review-requested = @livastic-vm3-mergify-lab-0911/vm3-security-reviewers-260930
-    success_conditions:
-      - check-success = vm3-team-picker-never-full-260930
 
 scopes:
   source:
