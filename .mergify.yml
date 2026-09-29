@@ -29,7 +29,7 @@ merge_protections_settings:
   post_comment: true
   auto_merge_conditions:
     - title = VM3 MANUAL CAPACITY CONTROL 260930
-    - scope != security-critical
+    - scope != security-*
 
 merge_protections:
   - name: VM3 Merge Protections head freshness R2 260925
@@ -38,10 +38,10 @@ merge_protections:
       - title = VM3 MP HEADRACE 260925 R2
     success_conditions:
       - check-success = vm3-mp-headrace-guard-r2
-  - name: VM3 manual capacity literal control 260930
+  - name: VM3 manual capacity glob treatment 260930
     if:
       - title = VM3 MANUAL CAPACITY CONTROL 260930
-      - scope = security-critical
+      - scope = security-*
     success_conditions:
       - check-success = vm3-manual-capacity-never-260930
 
