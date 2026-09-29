@@ -52,13 +52,14 @@ scopes:
           - ordinary/**/*
   barrier_files:
     include:
-      - .mergify.yml
+      - barrier/**/*
 
 queue_rules:
-  - name: vm3-configbar-impact-260929
+  - name: vm3-isobar-sec-260929
     batch_size: 1
     queue_conditions:
       - base = main
     merge_conditions:
-      - check-success = vm3-configbar-release-260929
+      - check-success = vm3-isobar-security
+      - check-success = vm3-isobar-release-260929
     merge_method: merge
