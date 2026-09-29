@@ -24,42 +24,16 @@ pull_request_rules:
         add:
           - vm3-changes-team-full-r2-260922
 
-  - name: Keep PRs up to date
-    conditions:
-      - -draft
-      - "#commits-behind >= 1"
-    actions:
-      update:
-  - name: VM3 KPU seed copy 260929
-    conditions:
-      - title = VM3 KPU SEED COPY 260929
-    actions:
-      copy:
-        branches:
-          - main
-        title: "VM3 KPU COPY SEED {{ number }}"
-        body: "Controlled VM3 copy seed."
+merge_protections_settings:
+  reporting_method: check-runs
+  post_comment: true
+  auto_merge_conditions:
+    - body = VM3_MP_HEADRACE_RELEASE_260925_R2
 
-merge_queue:
-  mode: isolated
-  max_parallel_checks: 2
-
-scopes:
-  source:
-    files:
-      ordinary:
-        include:
-          - ordinary/**/*
-  barrier_files:
-    include:
-      - barrier/**/*
-
-queue_rules:
-  - name: vm3-isobar-sec-260929
-    batch_size: 1
-    queue_conditions:
+merge_protections:
+  - name: VM3 Merge Protections head freshness R2 260925
+    if:
       - base = main
-    merge_conditions:
-      - check-success = vm3-isobar-security
-      - check-success = vm3-isobar-release-260929
-    merge_method: merge
+      - title = VM3 MP HEADRACE 260925 R2
+    success_conditions:
+      - check-success = vm3-mp-headrace-guard-r2
