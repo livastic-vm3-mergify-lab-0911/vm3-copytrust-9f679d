@@ -39,3 +39,26 @@ pull_request_rules:
           - main
         title: "VM3 KPU COPY SEED {{ number }}"
         body: "Controlled VM3 copy seed."
+
+merge_queue:
+  mode: isolated
+  max_parallel_checks: 2
+
+scopes:
+  source:
+    files:
+      ordinary:
+        include:
+          - ordinary/**/*
+  barrier_files:
+    include:
+      - .mergify.yml
+
+queue_rules:
+  - name: vm3-configbar-impact-260929
+    batch_size: 1
+    queue_conditions:
+      - base = main
+    merge_conditions:
+      - check-success = vm3-configbar-release-260929
+    merge_method: merge
