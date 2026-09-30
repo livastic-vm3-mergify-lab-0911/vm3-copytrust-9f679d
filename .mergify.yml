@@ -41,13 +41,3 @@ merge_protections:
 commands_restrictions:
   refresh:
     conditions: true
-scopes:
-  source:
-    manual:
-  capacities:
-    gha-readonly-scope: 1
-
-merge_queue:
-  mode: parallel
-  max_parallel_checks: 2
-
