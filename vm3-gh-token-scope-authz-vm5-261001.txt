@@ -1,1 +1,2 @@
 VM3 external fork GitHub token commit-scoped manual scope authz probe 261001
+VM3 synchronize trigger after trusted CLI probe fix 261001
