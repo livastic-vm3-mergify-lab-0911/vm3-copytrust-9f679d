@@ -9,9 +9,11 @@ jobs:
     if: github.event.pull_request.title == 'VM3 GH TOKEN SCOPE AUTHZ 261001' && github.event.pull_request.head.repo.fork == true
     runs-on: ubuntu-latest
     steps:
-      - uses: Mergifyio/setup-cli@dc99f07e699b94b39e5495c24596372813eadcbc
-        with:
-          mergify_cli_version: 2026.7.21.1
+      - name: Install audited CLI commit with commit-scoped scopes support
+        run: |
+          cargo install --git https://github.com/Mergifyio/mergify-cli \
+            --rev 1ef19c974e958d0313d5fd31e082ee229328083a \
+            --locked mergify-cli
       - name: Attempt manual scope upload with only GITHUB_TOKEN
         env:
           GITHUB_TOKEN: ${{ github.token }}
