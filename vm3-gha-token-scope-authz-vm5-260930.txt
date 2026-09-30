@@ -1,2 +1,3 @@
 VM3 external-fork GITHUB_TOKEN manual-scope authz probe 260930
 VM3 synchronize probe after CLI-arg fix 260930
+VM3 final synchronize probe with supported scopes-send args 260930
