@@ -22,4 +22,7 @@ jobs:
         run: |
           set -euo pipefail
           unset MERGIFY_TOKEN || true
-          mergify ci scopes-send             --repository livastic-vm3-mergify-lab-0911/vm3-copytrust-9f679d             --pull-request "$PR_NUMBER"             --head-sha "$HEAD_SHA"             --scope gha-readonly-scope
+          mergify ci scopes-send \
+            --repository livastic-vm3-mergify-lab-0911/vm3-copytrust-9f679d \
+            --pull-request "$PR_NUMBER" \
+            --scope gha-readonly-scope
