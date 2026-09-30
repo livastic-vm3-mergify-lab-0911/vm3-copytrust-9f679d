@@ -37,3 +37,18 @@ merge_protections:
       - title = VM3 MP HEADRACE 260925 R2
     success_conditions:
       - check-success = vm3-mp-headrace-guard-r2
+
+queue_rules:
+  - name: vm3-fork-rebase-consent-261001
+    queue_conditions:
+      - title = VM3 UPDATE CONSENT FALSE 260930
+    merge_conditions:
+      - check-success = vm3-fork-consent-never-261001
+    merge_method: fast-forward
+    update_method: rebase
+    batch_size: 1
+    max_checks_retries: 0
+
+merge_queue:
+  mode: serial
+  max_parallel_checks: 1
