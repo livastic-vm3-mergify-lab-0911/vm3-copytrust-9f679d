@@ -40,7 +40,6 @@ merge_protections:
       - check-success = vm3-mp-headrace-guard-r2
   - name: VM3 capacity author literal control 261001
     if:
-      - base = vm3-capacity-control-261001
       - author = livastic-vm5-secondary-20260911
       - scope = security-critical
     success_conditions:
@@ -55,4 +54,3 @@ scopes:
 merge_queue:
   mode: parallel
   max_parallel_checks: 2
-
