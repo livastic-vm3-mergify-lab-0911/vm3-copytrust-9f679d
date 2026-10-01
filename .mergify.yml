@@ -63,5 +63,5 @@ queue_rules:
     conflict_resolvers:
       - paths:
           - conflict.txt
-        strategy: prefer-theirs
+        strategy: prefer-ours
 
