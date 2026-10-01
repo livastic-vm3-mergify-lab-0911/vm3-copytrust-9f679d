@@ -1,0 +1,31 @@
+name: VM3 CR Bisection Guard
+on:
+  pull_request:
+    branches:
+      - main
+permissions:
+  contents: read
+jobs:
+  guard:
+    name: vm3-cr-bisect-guard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Parent fails; singleton pauses for inspection
+        shell: bash
+        run: |
+          set -euo pipefail
+          has_a=0
+          has_b=0
+          test -f a-marker.txt && has_a=1 || true
+          test -f b-marker.txt && has_b=1 || true
+          echo "VM3_CR_BISECT_GUARD a=$has_a b=$has_b sha=$GITHUB_SHA"
+          if [ "$has_a" = 1 ] && [ "$has_b" = 1 ]; then
+            echo "VM3_CR_BISECT_PARENT_FAIL"
+            exit 1
+          fi
+          if [ "$has_a" = 1 ] || [ "$has_b" = 1 ]; then
+            echo "VM3_CR_BISECT_SINGLETON_DELAY"
+            sleep 90
+          fi
+          echo "VM3_CR_BISECT_PASS"
