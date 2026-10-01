@@ -56,12 +56,12 @@ queue_rules:
     queue_conditions:
       - title *= VM3_CR_GEN_*
     merge_conditions:
-      - label = vm3-resolver-release-261002
+      - check-success = vm3-resolver-generation-hold-261002
     batch_size: 2
     batch_max_wait_time: 1 minute
     merge_method: merge-batch
     conflict_resolvers:
       - paths:
           - conflict.txt
-        strategy: prefer-ours
+        strategy: prefer-theirs
 
