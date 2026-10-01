@@ -44,12 +44,6 @@ merge_protections:
       - scope = security-critical
     success_conditions:
       - check-success = vm3-capacity-author-never-261001
-  - name: VM3 capacity author glob treatment 261001
-    if:
-      - author = livastic-vm5-secondary-20260911
-      - scope = security-*
-    success_conditions:
-      - check-success = vm3-capacity-author-never-261001
 
 scopes:
   source:
