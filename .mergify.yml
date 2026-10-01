@@ -38,6 +38,15 @@ merge_protections:
     success_conditions:
       - check-success = vm3-mp-headrace-guard-r2
 
+scopes:
+  source:
+    files:
+      resolver:
+        include:
+          - '**/*'
+  capacities:
+    resolver: 2
+
 merge_queue:
   mode: parallel
   max_parallel_checks: 2
