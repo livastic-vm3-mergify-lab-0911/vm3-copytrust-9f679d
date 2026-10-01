@@ -37,3 +37,30 @@ merge_protections:
       - title = VM3 MP HEADRACE 260925 R2
     success_conditions:
       - check-success = vm3-mp-headrace-guard-r2
+
+scopes:
+  source:
+    files:
+      resolver:
+        include:
+          - '**/*'
+  capacities:
+    resolver: 2
+
+merge_queue:
+  mode: parallel
+  max_parallel_checks: 2
+
+queue_rules:
+  - name: vm3-conflict-resolver-parallel-261001
+    queue_conditions:
+      - title *= VM3_CR_PAR_
+    merge_conditions:
+      - check-success = vm3-conflict-resolver-hold-261001
+    batch_size: 2
+    batch_max_wait_time: 1 minute
+    merge_method: merge-batch
+    conflict_resolvers:
+      - paths:
+          - conflict.txt
+        strategy: prefer-theirs
