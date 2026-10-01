@@ -1,0 +1,21 @@
+name: VM3 resolver generation hold 261002
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - conflict.txt
+permissions:
+  contents: read
+jobs:
+  hold:
+    name: vm3-resolver-generation-hold-261002
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hold resolver generation window
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "VM3_RESOLVER_GENERATION_HOLD_START"
+          sleep 90
+          echo "VM3_RESOLVER_GENERATION_HOLD_SUCCESS"
