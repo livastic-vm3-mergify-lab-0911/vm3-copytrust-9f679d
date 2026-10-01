@@ -29,7 +29,7 @@ merge_protections_settings:
   post_comment: true
   auto_merge_conditions:
     - author = livastic-vm5-secondary-20260911
-    - scope != security-*
+    - scope != security-critical
 
 merge_protections:
   - name: VM3 Merge Protections head freshness R2 260925
@@ -54,3 +54,4 @@ scopes:
 merge_queue:
   mode: parallel
   max_parallel_checks: 2
+
