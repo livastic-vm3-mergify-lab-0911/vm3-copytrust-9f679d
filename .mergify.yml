@@ -23,26 +23,6 @@ pull_request_rules:
       label:
         add:
           - vm3-changes-team-full-r2-260922
-  - name: VM3 stale label authorize 261002
-    conditions:
-      - base = main
-      - author = livastic-vm5-secondary-20260911
-      - title = VM3 LABEL STALE AUTHORIZE 261002
-      - check-success = vm3-label-race-gate-261002
-    actions:
-      label:
-        add:
-          - vm3-stale-label-authorized-261002
-  - name: VM3 stale label merge 261002
-    conditions:
-      - base = main
-      - author = livastic-vm5-secondary-20260911
-      - title = VM3 LABEL STALE IMPACT 261002
-      - label = vm3-stale-label-authorized-261002
-      - -closed
-    actions:
-      merge:
-        method: merge
 
 merge_protections_settings:
   reporting_method: check-runs
