@@ -50,3 +50,9 @@ queue_rules:
       - paths:
           - conflict.txt
         strategy: prefer-theirs
+  - name: vm3-patchid-rebase-261005
+    merge_method: rebase
+    batch_size: 1
+    queue_conditions:
+      - base = vm3-patchid-base-261005
+    merge_conditions: []
