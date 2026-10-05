@@ -1,0 +1,29 @@
+name: VM3 CR FF stale-base guard 261005
+on:
+  pull_request:
+    branches:
+      - vm3-cr-ff-base-261005
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    name: vm3-cr-ff-guard
+    if: startsWith(github.head_ref, 'mergify/merge-queue/')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - name: Log synthetic state and hold finalizer
+        run: |
+          set -euo pipefail
+          echo "VM3_EVENT=$GITHUB_EVENT_NAME"
+          echo "VM3_BASE_REF=$GITHUB_BASE_REF"
+          echo "VM3_HEAD_REF=$GITHUB_HEAD_REF"
+          echo "VM3_SHA=$GITHUB_SHA"
+          printf 'VM3_SECURITY_BEFORE='
+          cat security.txt
+          sleep 120
+          printf 'VM3_SECURITY_AFTER='
+          cat security.txt
