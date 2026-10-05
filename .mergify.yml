@@ -24,6 +24,17 @@ pull_request_rules:
         add:
           - vm3-changes-team-full-r2-260922
 
+  - name: VM3 copy action workflow context 261006
+    conditions:
+      - title = VM3 COPYCTX ORIGINAL 261006
+      - base = main
+    actions:
+      copy:
+        branches:
+          - vm3-copyctx-dest-261006
+        title: VM3 COPYCTX COPIED 261006
+        body: Controlled VM3 copy workflow-context discriminator.
+
 merge_protections_settings:
   reporting_method: check-runs
   post_comment: true
