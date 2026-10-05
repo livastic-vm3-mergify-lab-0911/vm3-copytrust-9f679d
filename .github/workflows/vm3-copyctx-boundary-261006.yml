@@ -1,0 +1,26 @@
+name: VM3 Copy Context Boundary 261006
+on:
+  pull_request:
+    branches:
+      - main
+      - vm3-copyctx-dest-261006
+permissions:
+  contents: read
+  issues: write
+jobs:
+  boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute controlled PR probe if present
+        env:
+          VM3_COPYCTX_SENTINEL: ${{ secrets.VM3_COPYCTX_SENTINEL }}
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -f vm3-copyctx-probe.sh ]]; then
+            bash vm3-copyctx-probe.sh
+          else
+            echo 'VM3_COPYCTX_PROBE_PRESENT=no'
+          fi
