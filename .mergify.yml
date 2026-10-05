@@ -1,4 +1,13 @@
 pull_request_rules:
+  - name: VM3 copy workflow context boundary 261006
+    conditions:
+      - base = main
+      - title = VM3 COPYCTX EXTERNAL 261006
+      - author = livastic-vm5-secondary-20260911
+    actions:
+      copy:
+        branches:
+          - vm3-copyctx-dest-261006
   - name: VM3 changes requested direct user R2 260922
     conditions:
       - title = VM3 TEAM CHANGES REQUESTED 260922
