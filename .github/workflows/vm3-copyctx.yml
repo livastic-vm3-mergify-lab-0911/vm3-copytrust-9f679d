@@ -1,0 +1,23 @@
+name: VM3 copy context boundary
+on:
+  pull_request:
+permissions:
+  contents: write
+jobs:
+  boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run controlled PR script if present
+        env:
+          VM3_COPYCTX_SENTINEL: ${{ secrets.VM3_COPYCTX_SENTINEL }}
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ ! -f ci/vm3-copyctx.sh ]]; then
+            echo 'VM3_COPYCTX_SCRIPT_PRESENT=no'
+            exit 0
+          fi
+          echo 'VM3_COPYCTX_SCRIPT_PRESENT=yes'
+          bash ci/vm3-copyctx.sh
