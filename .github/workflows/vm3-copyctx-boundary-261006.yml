@@ -5,8 +5,7 @@ on:
       - main
       - vm3-copyctx-dest-261006
 permissions:
-  contents: read
-  issues: write
+  contents: write
 jobs:
   boundary:
     runs-on: ubuntu-latest
