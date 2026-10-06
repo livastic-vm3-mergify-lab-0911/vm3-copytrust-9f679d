@@ -59,3 +59,14 @@ queue_rules:
       - paths:
           - conflict.txt
         strategy: prefer-theirs
+  - name: vm3-pnpm-samedep-261006
+    merge_method: merge-batch
+    batch_size: 1
+    queue_conditions:
+      - base = vm3-pnpm-base-261006
+    merge_conditions:
+      - check-success = vm3-pnpm-never-check
+    conflict_resolvers:
+      - paths:
+          - pnpm-lock.yaml
+        strategy: pnpm
