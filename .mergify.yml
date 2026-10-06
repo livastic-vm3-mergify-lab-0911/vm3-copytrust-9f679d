@@ -59,3 +59,14 @@ queue_rules:
       - paths:
           - conflict.txt
         strategy: prefer-theirs
+  - name: vm3-crjson-pointer-261006
+    merge_method: merge-batch
+    batch_size: 3
+    queue_conditions:
+      - base = vm3-crjson-pointer-target-261006
+    merge_conditions:
+      - check-success = vm3-never-check-json-pointer
+    conflict_resolvers:
+      - paths:
+          - vm3-pointer-policy.json
+        strategy: json
