@@ -2,7 +2,7 @@
   "security/mode": "safe",
   "security~1mode": "safe",
   "security": {
-    "mode": "safe"
+    "mode": "incoming-nested"
   },
   "unrelated": 0
 }
