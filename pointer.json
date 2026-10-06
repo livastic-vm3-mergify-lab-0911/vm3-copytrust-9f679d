@@ -1,0 +1,8 @@
+{
+  "security/mode": "safe",
+  "security~1mode": "safe",
+  "security": {
+    "mode": "safe"
+  },
+  "unrelated": 0
+}
