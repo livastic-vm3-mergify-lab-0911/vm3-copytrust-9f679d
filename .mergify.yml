@@ -59,3 +59,19 @@ queue_rules:
       - paths:
           - conflict.txt
         strategy: prefer-theirs
+  - name: vm3-cr-ours-symlink-261006
+    queue_conditions:
+      - base = vm3-cr-ours-symlink-target-261006
+    merge_conditions:
+      - label = vm3-cr-ours-release-261006
+    batch_size: 2
+    batch_max_wait_time: 1 minute
+    merge_method: merge-batch
+    conflict_resolvers:
+      - paths:
+          - guarded.txt
+        strategy: ours
+
+merge_queue:
+  mode: parallel
+  max_parallel_checks: 2
