@@ -3,5 +3,6 @@
   "beta": 2,
   "gamma": 3,
   "delta": 4,
+  "security": true,
   "omega": 5
 }
