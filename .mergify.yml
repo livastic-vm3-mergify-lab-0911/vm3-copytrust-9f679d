@@ -48,17 +48,6 @@ merge_protections:
       - check-success = vm3-mp-headrace-guard-r2
 
 queue_rules:
-  - name: vm3-cr-ff-stalebase-261005
-    merge_method: fast-forward
-    batch_size: 1
-    queue_conditions:
-      - base = vm3-cr-ff-base-261005
-    merge_conditions:
-      - check-success = vm3-cr-ff-guard
-    conflict_resolvers:
-      - paths:
-          - conflict.txt
-        strategy: prefer-theirs
   - name: vm3-cr-ours-symlink-261006
     queue_conditions:
       - base = vm3-cr-ours-symlink-target-261006
