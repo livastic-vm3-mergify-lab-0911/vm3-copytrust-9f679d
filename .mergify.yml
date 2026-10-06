@@ -59,3 +59,15 @@ queue_rules:
       - paths:
           - conflict.txt
         strategy: prefer-theirs
+  - name: vm3-jsonesc-261006
+    queue_conditions:
+      - base = vm3-jsonesc-target-261006
+    merge_conditions:
+      - check-success = vm3-jsonesc-never-261006
+    batch_size: 2
+    batch_max_wait_time: 1 minute
+    merge_method: merge-batch
+    conflict_resolvers:
+      - paths:
+          - vm3-jsonesc-policy.json
+        strategy: json
