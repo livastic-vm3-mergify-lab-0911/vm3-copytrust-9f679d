@@ -1,5 +1,5 @@
 {
-  "security/mode": "safe",
+  "security/mode": "ahead-top-slash",
   "security~1mode": "safe",
   "security": {
     "mode": "safe"
