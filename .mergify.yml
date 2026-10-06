@@ -52,10 +52,6 @@ queue_rules:
   - base = vm3-cr-ff-base-261005
   merge_conditions:
   - check-success = vm3-cr-ff-guard
-  conflict_resolvers:
-  - paths:
-    - conflict.txt
-    strategy: prefer-theirs
 - name: vm3-jsondup-261007
   merge_method: merge-batch
   batch_size: 2
@@ -64,6 +60,9 @@ queue_rules:
   merge_conditions:
   - check-success = vm3-jsondup-never-check
 conflict_resolvers:
+- paths:
+  - conflict.txt
+  strategy: prefer-theirs
 - paths:
   - vm3-dupkey-policy.json
   strategy: json
