@@ -2,6 +2,6 @@
   "rules": [
     {"name": "new", "enabled": false, "level": "normal"},
     {"name": "security", "enabled": false, "level": "strict"},
-    {"name": "docs", "enabled": false, "level": "normal"}
+    {"name": "docs", "enabled": true, "level": "normal"}
   ]
 }
