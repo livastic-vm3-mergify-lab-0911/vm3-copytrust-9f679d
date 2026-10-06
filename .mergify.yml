@@ -59,3 +59,16 @@ queue_rules:
       - paths:
           - conflict.txt
         strategy: prefer-theirs
+  - name: vm3-crjson-reorder-261006
+    merge_method: merge-batch
+    batch_size: 2
+    batch_max_wait_time: 30 sec
+    queue_conditions:
+      - base = vm3-crjson-reorder-base-261006
+      - title = VM3 CRJSON REORDER 261006
+    merge_conditions:
+      - check-success = vm3-never-crjson-reorder
+    conflict_resolvers:
+      - paths:
+          - vm3-json-reorder-policy.json
+        strategy: json
