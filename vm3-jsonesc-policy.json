@@ -1,4 +1,7 @@
 {
-  "security": null,
-  "docs": false
+  "alpha": 1,
+  "beta": 2,
+  "gamma": 3,
+  "delta": 4,
+  "omega": 5
 }
