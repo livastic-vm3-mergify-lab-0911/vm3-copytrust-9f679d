@@ -58,4 +58,10 @@ queue_rules:
     conflict_resolvers:
       - paths:
           - conflict.txt
-        strategy: prefer-theirs
+        strategy: prefer-theirs  - name: VM3 backport implicit merged guard 261007
+    conditions:
+      - title = VM3_BACKPORT_MERGED_GUARD_261007
+    actions:
+      backport:
+        branches:
+          - vm3-backport-req-dest-261007
