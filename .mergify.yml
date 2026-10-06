@@ -59,15 +59,3 @@ queue_rules:
       - paths:
           - conflict.txt
         strategy: prefer-theirs
-  - name: vm3-crjson-index-shift-261006
-    merge_method: merge-batch
-    batch_size: 2
-    batch_max_wait_time: 30s
-    queue_conditions:
-      - base = vm3-crjson-shift-base-261006
-    merge_conditions:
-      - check-success = vm3-never-check-json-shift
-    conflict_resolvers:
-      - paths:
-          - vm3-index-policy.json
-        strategy: json
