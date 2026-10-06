@@ -55,19 +55,19 @@ queue_rules:
       - base = vm3-cr-ff-base-261005
     merge_conditions:
       - check-success = vm3-cr-ff-guard
-    conflict_resolvers:
-      - paths:
-          - conflict.txt
-        strategy: prefer-theirs
   - name: vm3-jsonptr-261006
-    merge_method: merge
+    merge_method: merge-batch
     batch_size: 2
     batch_max_wait_time: 30 seconds
     queue_conditions:
       - base = vm3-jsonptr-target-261006
       - title ~= ^VM3 JSONPTR 261006
     merge_conditions: []
-    conflict_resolvers:
-      - paths:
-          - pointer.json
-        strategy: json
+
+conflict_resolvers:
+  - paths:
+      - conflict.txt
+    strategy: prefer-theirs
+  - paths:
+      - pointer.json
+    strategy: json
