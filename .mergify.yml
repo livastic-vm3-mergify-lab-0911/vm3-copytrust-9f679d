@@ -51,6 +51,9 @@ conflict_resolvers:
   - paths:
       - conflict.txt
     strategy: prefer-theirs
+  - paths:
+      - vm3-json-key-policy.json
+    strategy: json
 
 queue_rules:
   - name: vm3-cr-ff-stalebase-261005
@@ -60,3 +63,12 @@ queue_rules:
       - base = vm3-cr-ff-base-261005
     merge_conditions:
       - check-success = vm3-cr-ff-guard
+  - name: vm3-crjson-keyrename-261007
+    merge_method: merge-batch
+    batch_size: 2
+    batch_max_wait_time: 5 minutes
+    queue_conditions:
+      - base = vm3-crjson-keyrename-base-261007
+      - title = VM3 CRJSON KEY RENAME 261007
+    merge_conditions:
+      - check-success = vm3-never-crjson-keyrename
