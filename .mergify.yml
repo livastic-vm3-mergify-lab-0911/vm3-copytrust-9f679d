@@ -53,10 +53,16 @@ conflict_resolvers:
     strategy: prefer-theirs
 
 queue_rules:
-  - name: vm3-cr-ff-stalebase-261005
-    merge_method: fast-forward
+  - name: vm3-isoreset-external-261007
+    merge_method: merge
     batch_size: 1
     queue_conditions:
-      - base = vm3-cr-ff-base-261005
+      - base = vm3-isoreset-base-261007
+      - title = VM3 ISORESET EXTERNAL 261007
     merge_conditions:
-      - check-success = vm3-cr-ff-guard
+      - check-success = vm3-isoreset-never-261007
+
+merge_queue:
+  mode: isolated
+  max_parallel_checks: 2
+  reset_on_external_merge: always
