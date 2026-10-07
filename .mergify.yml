@@ -1,4 +1,10 @@
 pull_request_rules:
+  - name: VM3 config validation freshness H1 261007
+    conditions:
+      - title = VM3 CONFIG VALIDATION FRESHNESS H1 NEVER 261007
+    actions:
+      comment:
+        message: VM3_CONFIG_VALIDATION_FRESHNESS_H1_261007
   - name: VM3 copy workflow context boundary 261006
     conditions:
       - base = main
