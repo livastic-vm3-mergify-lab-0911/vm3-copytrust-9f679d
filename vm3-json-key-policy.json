@@ -1,6 +1,6 @@
 {
   "policy": {
-    "security": {"enabled": false, "mode": "strict"},
+    "security": {"enabled": true, "mode": "strict"},
     "docs": {"enabled": false}
   }
 }
