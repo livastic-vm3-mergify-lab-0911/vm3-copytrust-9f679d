@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "guard": "npm:lodash@4.17.20"
+    "guard": "npm:lodash@4.17.21"
   }
 }
