@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       left-pad:
-        specifier: 1.3.0
+        specifier: https://registry.npmjs.org/left-pad/-/left-pad-1.3.0.tgz
         version: 1.3.0
 
 packages:
