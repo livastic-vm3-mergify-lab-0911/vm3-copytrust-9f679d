@@ -51,8 +51,23 @@ conflict_resolvers:
   - paths:
       - conflict.txt
     strategy: prefer-theirs
+  - paths:
+      - uv.lock
+      - pyproject.toml
+    strategy: uv
 
 queue_rules:
+  - name: vm3-uv-orphan-261008
+    merge_method: merge-batch
+    batch_size:
+      min: 2
+      max: 2
+    batch_max_wait_time: 2 min
+    queue_conditions:
+      - base = vm3-uv-orphan-base-261008
+      - title = VM3 UV ORPHAN 261008
+    merge_conditions:
+      - check-success = vm3-never-uv-orphan-261008
   - name: vm3-cr-ff-stalebase-261005
     merge_method: fast-forward
     batch_size: 1
