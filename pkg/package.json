@@ -1,1 +1,1 @@
-{"name":"vm3-blockexotic","version":"1.0.0","private":true,"description":"supply-chain-hardening"}
+{"name":"vm3-blockexotic","version":"1.0.0","private":true,"dependencies":{"vm3-dep-a":"file:./dep-a"},"description":"supply-chain-hardening"}
