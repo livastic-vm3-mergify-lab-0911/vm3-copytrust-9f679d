@@ -8,21 +8,12 @@ version = "0.1.0"
 source = { directory = "pkg-a" }
 
 [[package]]
-name = "pkg-b"
-version = "0.1.0"
-source = { directory = "pkg-b" }
-
-[[package]]
 name = "vm3-uv-dangling-app"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "pkg-a" },
-    { name = "pkg-b" },
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "pkg-a", directory = "pkg-a" },
-    { name = "pkg-b", directory = "pkg-b" },
-]
+requires-dist = [{ name = "pkg-a", directory = "pkg-a" }]
