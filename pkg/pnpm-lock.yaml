@@ -7,7 +7,7 @@ settings:
 importers:
 
   .:
-    devDependencies:
+    dependencies:
       is-number:
         specifier: 6.0.0
         version: 6.0.0
