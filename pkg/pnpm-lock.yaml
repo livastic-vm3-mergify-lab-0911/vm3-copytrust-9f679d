@@ -17,15 +17,21 @@ importers:
   packages/b:
     dependencies:
       is-number:
-        specifier: 7.0.0
-        version: 7.0.0
+        specifier: 5.0.0
+        version: 5.0.0
 
 packages:
+
+  is-number@5.0.0:
+    resolution: {integrity: sha512-LmVHHP5dTJwrwZg2Jjqp7K5jpvcnYvYD1LMpvGadMsMv5+WXoDSLBQ0+zmuBJmuZGh2J2K845ygj/YukxUnr4A==}
+    engines: {node: '>=0.10.0'}
 
   is-number@7.0.0:
     resolution: {integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==}
     engines: {node: '>=0.12.0'}
 
 snapshots:
+
+  is-number@5.0.0: {}
 
   is-number@7.0.0: {}
