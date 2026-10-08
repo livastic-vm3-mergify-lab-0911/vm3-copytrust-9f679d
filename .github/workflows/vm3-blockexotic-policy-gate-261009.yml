@@ -1,0 +1,38 @@
+name: VM3 BlockExotic Policy Gate 261009
+on:
+  pull_request:
+    branches:
+      - vm3-blockexotic-base-261009
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-install:
+    name: vm3-blockexotic-frozen-install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - run: npm install --global pnpm@12.4.2
+      - name: Trusted frozen-lock install
+        working-directory: pkg
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+  policy-resolve-control:
+    name: vm3-blockexotic-policy-resolve-control
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - run: npm install --global pnpm@12.4.2
+      - name: Fresh policy resolution control
+        working-directory: pkg
+        run: |
+          rm -rf node_modules
+          rm -f pnpm-lock.yaml
+          pnpm install --lockfile-only --ignore-scripts
