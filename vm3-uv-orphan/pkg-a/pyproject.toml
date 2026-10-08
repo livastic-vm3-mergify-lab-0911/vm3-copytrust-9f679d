@@ -2,7 +2,3 @@
 name = "pkg-a"
 version = "0.1.0"
 requires-python = ">=3.12"
-dependencies = ["pkg-b"]
-
-[tool.uv.sources]
-pkg-b = { path = "../pkg-b" }
