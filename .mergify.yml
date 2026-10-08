@@ -48,6 +48,9 @@ merge_protections:
       - check-success = vm3-mp-headrace-guard-r2
 
 conflict_resolvers:
+  - package-manager: npm
+    directories:
+      - /pkg
   - paths:
       - conflict.txt
     strategy: prefer-theirs
@@ -61,3 +64,12 @@ queue_rules:
     merge_conditions:
       - check-success = vm3-cr-ff-guard
 
+  - name: vm3-pkgov-atomic-261008
+    merge_method: merge-batch
+    batch_size: 2
+    batch_max_wait_time: 30 sec
+    queue_conditions:
+      - base = vm3-pkgov-base-261008
+      - title = VM3 PKGOV ATOMIC 261008
+    merge_conditions:
+      - check-success = vm3-pkgov-never-261008
