@@ -9,14 +9,14 @@ importers:
   .:
     dependencies:
       guard:
-        specifier: npm:lodash@4.17.20
-        version: lodash@4.17.20
+        specifier: npm:lodash-es@4.17.20
+        version: lodash-es@4.17.20
 
 packages:
 
-  lodash@4.17.20:
-    resolution: {integrity: sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==}
+  lodash-es@4.17.20:
+    resolution: {integrity: sha512-JD1COMZsq8maT6mnuz1UMV0jvYD0E0aUsSOdrr1/nAG3dhqQXwRRgeW0cSqH1U43INKcqxaiVIQNOUDld7gRDA==}
 
 snapshots:
 
-  lodash@4.17.20: {}
+  lodash-es@4.17.20: {}
