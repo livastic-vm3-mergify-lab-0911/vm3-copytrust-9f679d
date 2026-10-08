@@ -6,4 +6,26 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    dependencies:
+      vm3-dep-a:
+        specifier: file:./dep-a
+        version: file:dep-a
+
+packages:
+
+  is-positive@https://codeload.github.com/kevva/is-positive/tar.gz/97edff6f525f192a3f83cea1944765f769ae2678:
+    resolution: {gitHosted: true, integrity: sha512-ImoN9vdC+9CSDxbHJIcYwImhox3/lvLNqKpX5dNXT9O5Vawb+c4wddQ6KXq8FsFMm4WuSc3nxaWG2Q3iBRcFdA==, tarball: https://codeload.github.com/kevva/is-positive/tar.gz/97edff6f525f192a3f83cea1944765f769ae2678}
+    version: 3.1.0
+    engines: {node: '>=0.10.0'}
+
+  vm3-dep-a@file:dep-a:
+    resolution: {directory: dep-a, type: directory}
+
+snapshots:
+
+  is-positive@https://codeload.github.com/kevva/is-positive/tar.gz/97edff6f525f192a3f83cea1944765f769ae2678: {}
+
+  vm3-dep-a@file:dep-a:
+    dependencies:
+      is-positive: https://codeload.github.com/kevva/is-positive/tar.gz/97edff6f525f192a3f83cea1944765f769ae2678
