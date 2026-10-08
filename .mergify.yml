@@ -56,6 +56,16 @@ conflict_resolvers:
     strategy: prefer-theirs
 
 queue_rules:
+
+  - name: vm3-pkgimporter-identity-261009
+    merge_method: merge-batch
+    batch_size: 2
+    batch_max_wait_time: 2 min
+    queue_conditions:
+      - base = vm3-pkgimporter-base-261009
+      - title = VM3 PNPM IMPORTER IDENTITY 261009
+    merge_conditions:
+      - check-success = vm3-pkgimporter-never-261009
   - name: vm3-cr-ff-stalebase-261005
     merge_method: fast-forward
     batch_size: 1
