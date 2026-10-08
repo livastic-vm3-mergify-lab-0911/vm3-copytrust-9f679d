@@ -64,12 +64,12 @@ queue_rules:
     merge_conditions:
       - check-success = vm3-cr-ff-guard
 
-  - name: vm3-pkgov-atomic-261008
+  - name: vm3-pkgsource-identity-261009
     merge_method: merge-batch
     batch_size: 2
-    batch_max_wait_time: 30 sec
+    batch_max_wait_time: 2 min
     queue_conditions:
-      - base = vm3-pkgov-base-261008
-      - title = VM3 PKGOV ATOMIC 261008
+      - base = vm3-pkgsource-base-261009
+      - title = VM3 PKGSOURCE IDENTITY 261009
     merge_conditions:
-      - check-success = vm3-pkgov-never-261008
+      - check-success = vm3-pkgsource-never-261009
