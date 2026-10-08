@@ -56,13 +56,6 @@ conflict_resolvers:
     strategy: prefer-theirs
 
 queue_rules:
-  - name: vm3-cr-ff-stalebase-261005
-    merge_method: fast-forward
-    batch_size: 1
-    queue_conditions:
-      - base = vm3-cr-ff-base-261005
-    merge_conditions:
-      - check-success = vm3-cr-ff-guard
   - name: vm3-blockexotic-261009
     merge_method: merge-batch
     batch_size: 2
