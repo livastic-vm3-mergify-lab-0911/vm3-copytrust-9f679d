@@ -6,6 +6,12 @@ requires-python = ">=3.12"
 name = "pkg-a"
 version = "0.1.0"
 source = { directory = "pkg-a" }
+dependencies = [
+    { name = "pkg-b" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "pkg-b", directory = "pkg-b" }]
 
 [[package]]
 name = "pkg-b"
