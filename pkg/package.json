@@ -1,1 +1,1 @@
-{"name":"vm3-override-probe","version":"1.0.0","private":true,"dependencies":{"left-pad":"1.3.0"}}
+{"name":"vm3-override-probe","version":"1.0.0","private":true,"dependencies":{"left-pad":"1.3.0","is-odd":"3.0.1"}}
