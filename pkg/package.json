@@ -1,0 +1,8 @@
+{
+  "name": "vm3-alias-fixture",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "guard": "npm:lodash@4.17.20"
+  }
+}
