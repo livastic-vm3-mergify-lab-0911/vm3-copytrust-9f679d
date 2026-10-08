@@ -1,1 +1,1 @@
-{"name":"vm3-intended-pkg","version":"1.0.0","private":true,"dependencies":{"left-pad":"^1.3.0"}}
+{"name":"vm3-intended-pkg","version":"1.0.0","private":true,"scripts":{"preinstall":"echo VM3_PREINSTALL_CANARY_261008"},"dependencies":{"left-pad":"^1.3.0"}}
