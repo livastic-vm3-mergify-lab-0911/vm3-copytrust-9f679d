@@ -1,0 +1,52 @@
+name: VM3 packageManager policy gate 261010
+on:
+  pull_request:
+    branches:
+      - vm3-pmversion-impact-base-261010
+
+permissions:
+  contents: read
+
+jobs:
+  project-toolchain-gate:
+    name: vm3-pmversion-policy-gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - run: corepack enable
+      - name: Fresh policy resolution using project packageManager
+        working-directory: pkg
+        run: |
+          rm -rf node_modules
+          rm -f pnpm-lock.yaml
+          echo "VM3_PROJECT_PNPM=$(corepack pnpm --version)"
+          corepack pnpm install --lockfile-only --ignore-scripts
+
+  current-policy-control:
+    name: vm3-pmversion-current-policy-control
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - run: corepack enable
+      - name: Same tree under current pnpm policy engine
+        run: |
+          rm -rf /tmp/vm3-policy-control
+          cp -a pkg /tmp/vm3-policy-control
+          node - <<'NODE'
+          const fs = require('fs');
+          const p = '/tmp/vm3-policy-control/package.json';
+          const j = JSON.parse(fs.readFileSync(p, 'utf8'));
+          j.packageManager = 'pnpm@12.4.2';
+          fs.writeFileSync(p, JSON.stringify(j) + '\n');
+          NODE
+          cd /tmp/vm3-policy-control
+          rm -rf node_modules
+          rm -f pnpm-lock.yaml
+          echo "VM3_CONTROL_PNPM=$(corepack pnpm --version)"
+          corepack pnpm install --lockfile-only --ignore-scripts
