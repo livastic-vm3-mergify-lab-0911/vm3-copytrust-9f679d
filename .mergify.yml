@@ -1,4 +1,12 @@
 pull_request_rules:
+  - name: vm3 queued rebase implicit gate 261009
+    conditions:
+      - base = vm3-rebasequeued-base-261009
+      - title = VM3 REBASE QUEUED 261009
+      - body = VM3_REBASE_TRIGGER_261009
+      - "#commits-behind > 0"
+    actions:
+      rebase: {}
   - name: VM3 copy workflow context boundary 261006
     conditions:
       - base = main
@@ -60,6 +68,15 @@ conflict_resolvers:
   - paths:
       - conflict.txt
     strategy: prefer-theirs
+
+  - name: vm3-rebasequeued-261009
+    merge_method: merge-batch
+    batch_size: 1
+    queue_conditions:
+      - base = vm3-rebasequeued-base-261009
+      - title = VM3 REBASE QUEUED 261009
+    merge_conditions:
+      - check-success = vm3-rebasequeued-never-261009
 
 merge_queue:
   mode: serial
