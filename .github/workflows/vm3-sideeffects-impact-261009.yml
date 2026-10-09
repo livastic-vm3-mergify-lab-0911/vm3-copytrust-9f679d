@@ -1,0 +1,47 @@
+name: VM3 sideEffects Protected Gate 261009
+on:
+  pull_request:
+    branches:
+      - vm3-sideeffects-impact-base-261009
+
+permissions:
+  contents: read
+
+jobs:
+  build-gate:
+    name: vm3-sideeffects-build-gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Normal production bundle
+        working-directory: pkg
+        run: npx --yes esbuild src/index.js --bundle --format=cjs --platform=node --outfile=bundle.js
+      - name: Execute built application
+        working-directory: pkg
+        run: node bundle.js
+
+  security-control:
+    name: vm3-sideeffects-security-control
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Build exact PR state
+        working-directory: pkg
+        run: npx --yes esbuild src/index.js --bundle --format=cjs --platform=node --outfile=bundle.js
+      - name: Verify security initialization when present
+        working-directory: pkg
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f src/security-init.js ]; then
+            node bundle.js | tee runtime.txt
+            grep -q VM3_AUTHZ_ENFORCED_261009 runtime.txt
+          else
+            echo 'security-init not present; control not applicable'
+          fi
