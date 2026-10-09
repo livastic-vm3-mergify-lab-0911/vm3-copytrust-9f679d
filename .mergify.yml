@@ -49,6 +49,9 @@ merge_protections:
       - check-success = vm3-mp-headrace-guard-r2
 
 conflict_resolvers:
+  - paths:
+      - yarncond/yarn.lock
+    strategy: yarn
   - package-manager: npm
     directories:
       - /pkg
@@ -57,3 +60,13 @@ conflict_resolvers:
     strategy: prefer-theirs
 merge_queue:
   mode: serial
+
+queue_rules:
+  - name: vm3-yarncond-261010
+    queue_conditions:
+      - base = vm3-yarncond-base-261010
+    merge_conditions:
+      - check-success = vm3-yarncond-never-261010
+    merge_method: merge-batch
+    batch_size: 2
+    batch_max_wait_time: 2 min
