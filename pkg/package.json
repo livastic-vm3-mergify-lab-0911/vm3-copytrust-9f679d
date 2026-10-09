@@ -1,1 +1,1 @@
-{"name":"vm3-engines-fixture","version":"1.0.0","engines":{"node":">=18"},"dependencies":{}}
+{"name":"vm3-engines-fixture","version":"1.0.0","engines":{"node":">=18","npm":">=10"},"dependencies":{}}
