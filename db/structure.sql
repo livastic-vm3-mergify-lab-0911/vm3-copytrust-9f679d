@@ -24,5 +24,6 @@ $vm3$;
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20261010010000'),
 ('20261010000000'),
 ('20261009000000');
