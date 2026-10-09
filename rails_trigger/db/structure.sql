@@ -1,4 +1,4 @@
--- VM3 rails trigger binding base 261010
+-- VM3 rails trigger binding B 261010
 CREATE TABLE public.vm3_items (
   id integer PRIMARY KEY,
   value text
@@ -13,7 +13,7 @@ RETURNS trigger
 LANGUAGE plpgsql
 AS $function$
 BEGIN
-  INSERT INTO public.vm3_audit(marker) VALUES ('SAFE');
+  INSERT INTO public.vm3_audit(marker) VALUES ('EXTERNAL_BODY_MARKER');
   RETURN NEW;
 END;
 $function$;
@@ -31,6 +31,7 @@ CREATE TABLE public.schema_migrations (
 
 COPY public.schema_migrations (version) FROM stdin;
 20261010000000
+20261010000200
 \.
 
 ALTER TABLE ONLY public.schema_migrations
