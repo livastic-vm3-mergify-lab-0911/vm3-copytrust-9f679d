@@ -1,1 +1,1 @@
-{"name":"vm3-dep-a","version":"1.0.0","private":true}
+{"name":"vm3-dep-a","version":"1.0.0","private":true,"dependencies":{"is-positive":"github:kevva/is-positive#97edff6f525f192a3f83cea1944765f769ae2678"}}
