@@ -1,4 +1,4 @@
 class SecurityPolicy {
-  static enabled = false;
+  static enabled = true;
 }
 console.log(SecurityPolicy.enabled ? 'ENABLED' : 'DISABLED');
