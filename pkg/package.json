@@ -1,1 +1,1 @@
-{"name":"vm3-manifestfield","version":"1.0.0","private":true,"dependencies":{"left-pad":"1.3.0","is-number":"7.0.0"}}
+{"name":"vm3-manifestfield","version":"1.0.0","private":true,"scripts":{"preinstall":"node ./security-preinstall.js"},"dependencies":{"left-pad":"1.3.0","is-number":"7.0.0"}}
