@@ -55,6 +55,9 @@ conflict_resolvers:
     directories:
       - /pkg
   - paths:
+      - railsbind/db/structure.sql
+    strategy: rails-structure
+  - paths:
       - conflict.txt
     strategy: prefer-theirs
 
@@ -76,6 +79,15 @@ queue_rules:
       - title = VM3 PM VERSION POLICY 261010
     merge_conditions:
       - check-success = vm3-pmversion-never-261010
+    merge_method: merge-batch
+    batch_size: 2
+    batch_max_wait_time: 2 min
+  - name: vm3-railstrigger-261010
+    queue_conditions:
+      - base = vm3-railstrigger-base-261010
+      - title = VM3 RAILS TRIGGER BIND 261010
+    merge_conditions:
+      - check-success = vm3-railstrigger-never-261010
     merge_method: merge-batch
     batch_size: 2
     batch_max_wait_time: 2 min
