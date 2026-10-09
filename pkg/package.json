@@ -1,1 +1,1 @@
-{"name":"vm3-overrides-live","version":"1.0.0","private":true,"description":"maintainer-adds-safe-dep","dependencies":{"is-odd":"3.0.1"}}
+{"name":"vm3-overrides-live","version":"1.0.0","private":true,"overrides":{"is-number":"7.0.0"},"description":"maintainer-adds-safe-dep","dependencies":{"is-odd":"3.0.1"}}
