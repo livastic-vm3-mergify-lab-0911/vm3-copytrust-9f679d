@@ -54,7 +54,6 @@ conflict_resolvers:
   - paths:
       - conflict.txt
     strategy: prefer-theirs
-queue_rules:
 merge_queue:
   mode: serial
 
