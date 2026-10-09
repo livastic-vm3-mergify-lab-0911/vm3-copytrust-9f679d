@@ -79,12 +79,3 @@ queue_rules:
     merge_method: merge-batch
     batch_size: 2
     batch_max_wait_time: 2 min
-  - name: vm3-pmversion-impact-261010
-    queue_conditions:
-      - base = vm3-pmversion-impact-base-261010
-      - title = VM3 PM VERSION POLICY IMPACT 261010
-    merge_conditions:
-      - check-success = vm3-pmversion-policy-gate
-    merge_method: merge-batch
-    batch_size: 2
-    batch_max_wait_time: 2 min
