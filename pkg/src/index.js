@@ -1,1 +1,2 @@
-console.log("BASE_APP_261009");
+import "./security-init.js";
+console.log("A_APP_261009");
