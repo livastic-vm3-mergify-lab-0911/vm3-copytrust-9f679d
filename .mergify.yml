@@ -67,16 +67,6 @@ queue_rules:
       - check-success = vm3-midpolicyfresh-canary
       - check-success = vm3-midpolicyfresh-never
 
-  - name: vm3-manifestfield-261009
-    merge_method: merge-batch
-    batch_size: 2
-    batch_max_wait_time: 30 sec
-    queue_conditions:
-      - base = vm3-manifestfield-base-261009
-      - title = VM3 MANIFEST FIELD 261009
-    merge_conditions:
-      - check-success = vm3-manifestfield-never-261009
-
 merge_queue:
   mode: serial
 
