@@ -55,17 +55,6 @@ conflict_resolvers:
       - conflict.txt
     strategy: prefer-theirs
 queue_rules:
-  - name: vm3-baseadvance-rebuild-261009
-    merge_method: merge-batch
-    batch_size: 2
-    batch_max_wait_time: 1 sec
-    queue_conditions:
-      - base = vm3-baseadvance-target-261009
-      - title = VM3 BASE ADVANCE REBUILD 261009
-    merge_conditions:
-      - check-success = vm3-baseadvance-canary
-      - check-success = vm3-baseadvance-never
-
 merge_queue:
   mode: serial
 
