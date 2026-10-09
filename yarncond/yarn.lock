@@ -120,7 +120,7 @@ __metadata:
 "@esbuild/linux-x64@npm:0.27.7":
   version: 0.27.7
   resolution: "@esbuild/linux-x64@npm:0.27.7"
-  conditions: os=linux & cpu=x64
+  conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
