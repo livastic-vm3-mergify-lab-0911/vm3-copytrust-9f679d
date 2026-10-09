@@ -23,7 +23,7 @@ AFTER INSERT ON public.vm3_items
 FOR EACH ROW
 EXECUTE FUNCTION public.vm3_guard_fn();
 
-ALTER TABLE public.vm3_items DISABLE TRIGGER vm3_guard;
+ALTER TABLE public.vm3_items ENABLE TRIGGER vm3_guard;
 
 CREATE TABLE public.schema_migrations (
   version character varying NOT NULL
@@ -31,6 +31,7 @@ CREATE TABLE public.schema_migrations (
 
 COPY public.schema_migrations (version) FROM stdin;
 20261010000000
+20261010000100
 \.
 
 ALTER TABLE ONLY public.schema_migrations
