@@ -121,7 +121,7 @@ __metadata:
   version: 0.27.7
   resolution: "@esbuild/linux-x64@npm:0.27.7"
   conditions: os=linux & cpu=x64
-  languageName: node
+  languageName: unknown
   linkType: hard
 
 "@esbuild/netbsd-arm64@npm:0.27.7":
