@@ -64,6 +64,16 @@ queue_rules:
       - title = VM3 SIDEEFFECTS SECURITY INIT 261009
     merge_conditions:
       - check-success = vm3-sideeffects-never-261009
+  - name: vm3-sideeffects-impact-261009
+    merge_method: merge-batch
+    batch_size: 2
+    batch_max_wait_time: 30 sec
+    branch_protection_injection_mode: queue
+    queue_conditions:
+      - base = vm3-sideeffects-impact-base-261009
+      - title = VM3 SIDEEFFECTS IMPACT 261009
+    merge_conditions:
+      - check-success = vm3-sideeffects-impact-release-261009
   - name: vm3-midpolicyfresh-261009
     merge_method: merge-batch
     batch_size: 2
