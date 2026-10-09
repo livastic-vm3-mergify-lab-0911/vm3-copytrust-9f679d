@@ -49,9 +49,6 @@ merge_protections:
 
 conflict_resolvers:
   - paths:
-      - rails_trigger/db/structure.sql
-    strategy: rails-structure
-  - paths:
       - yarncond/yarn.lock
     strategy: yarn
   - package-manager: npm
@@ -65,20 +62,20 @@ merge_queue:
   mode: serial
 
 queue_rules:
-  - name: vm3-rails-trigger-261010
-    queue_conditions:
-      - base = vm3-rails-trigger-base-261010
-      - title = VM3 RAILS TRIGGER 261010
-    merge_conditions:
-      - check-success = vm3-rails-trigger-never-261010
-    merge_method: merge-batch
-    batch_size: 2
-    batch_max_wait_time: 2 min
   - name: vm3-yarncond-261010
     queue_conditions:
       - base = vm3-yarncond-base-261010
     merge_conditions:
       - check-success = vm3-yarncond-never-261010
+    merge_method: merge-batch
+    batch_size: 2
+    batch_max_wait_time: 2 min
+  - name: vm3-pmversion-261010
+    queue_conditions:
+      - base = vm3-pmversion-base-261010
+      - title = VM3 PM VERSION POLICY 261010
+    merge_conditions:
+      - check-success = vm3-pmversion-never-261010
     merge_method: merge-batch
     batch_size: 2
     batch_max_wait_time: 2 min
