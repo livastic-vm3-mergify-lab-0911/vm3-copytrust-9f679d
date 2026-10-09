@@ -54,18 +54,5 @@ conflict_resolvers:
   - paths:
       - conflict.txt
     strategy: prefer-theirs
-queue_rules:
-  - name: vm3-classic-strict-freshness-261010
-    queue_conditions:
-      - base = vm3-classic-strict-base-261010
-      - title = VM3 CLASSIC STRICT FRESHNESS 261010
-    merge_conditions:
-      - base = vm3-classic-strict-base-261010
-      - title = VM3 CLASSIC STRICT FRESHNESS 261010
-    branch_protection_injection_mode: queue
-    batch_size: 1
-    merge_method: squash
-
 merge_queue:
   mode: serial
-  max_parallel_checks: 1
