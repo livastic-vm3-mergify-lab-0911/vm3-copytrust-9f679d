@@ -1,3 +1,14 @@
+
+queue_rules:
+  - name: vm3-railsdq-261010
+    queue_conditions:
+      - base = vm3-railsdq-base-261010
+    merge_conditions:
+      - check-success = vm3-railsdq-never-261010
+    merge_method: merge-batch
+    batch_size: 2
+    batch_max_wait_time: 2 min
+
 pull_request_rules:
   - name: VM3 copy workflow context boundary 261006
     conditions:
@@ -48,6 +59,9 @@ merge_protections:
       - check-success = vm3-mp-headrace-guard-r2
 
 conflict_resolvers:
+  - paths:
+      - db/structure.sql
+    strategy: rails-structure
   - package-manager: npm
     directories:
       - /pkg
