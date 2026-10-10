@@ -71,14 +71,6 @@ merge_queue:
   mode: serial
 
 queue_rules:
-  - name: vm3-codeowners-impact-261010
-    queue_conditions:
-      - base = vm3-codeowners-impact-base-261010
-      - title = VM3 CODEOWNERS IMPACT 261010
-    branch_protection_injection_mode: queue
-    merge_method: merge-batch
-    batch_size: 2
-    batch_max_wait_time: 10 min
   - name: vm3-tsjsx-policy-impact-261010
     queue_conditions:
       - base = vm3-tsjsx-policy-impact-base-261010
