@@ -1,1 +1,1 @@
-{"name":"vm3-pkg-case","version":"1.0.0","private":true}
+{"name":"vm3-pkg-case","version":"1.0.0","private":true,"devEngines":{"runtime":{"name":"node","onFail":"error","version":">=24"}}}
