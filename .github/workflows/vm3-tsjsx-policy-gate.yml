@@ -1,0 +1,23 @@
+name: VM3 TSX Policy Gate
+on:
+  pull_request:
+    branches:
+      - vm3-tsjsx-policy-impact-base-261010
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    name: vm3-tsjsx-policy-gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Validate policy artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s tsjsx/policy.tsx
+          grep -q 'function authorize' tsjsx/policy.tsx
+          grep -q 'Policy' tsjsx/policy.tsx
+          echo "VM3_TSX_POLICY_GATE=pass"
