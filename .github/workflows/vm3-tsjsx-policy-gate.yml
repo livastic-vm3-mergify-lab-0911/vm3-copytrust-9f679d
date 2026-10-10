@@ -2,7 +2,7 @@ name: VM3 TSX Policy Gate
 on:
   pull_request:
     branches:
-      - vm3-tsjsx-policy-impact-base-261010
+      - vm3-tsjsx-policy-impact2-base-261010
 
 permissions:
   contents: read
