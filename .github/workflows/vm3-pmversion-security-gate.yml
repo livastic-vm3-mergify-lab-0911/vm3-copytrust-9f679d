@@ -1,0 +1,26 @@
+name: VM3 PMVersion Security Gate 261010
+on:
+  pull_request:
+    branches:
+      - vm3-pmversion-base-261010
+permissions:
+  contents: read
+jobs:
+  security-gate:
+    name: vm3-pmversion-security-gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fresh resolve under merged packageManager
+        shell: bash
+        run: |
+          set -euo pipefail
+          corepack enable
+          cd pkg
+          node -e 'const p=require("./package.json"); console.log("packageManager="+p.packageManager)'
+          cat pnpm-workspace.yaml
+          rm -f pnpm-lock.yaml
+          corepack pnpm install --lockfile-only --ignore-scripts
