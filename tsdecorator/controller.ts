@@ -1,5 +1,5 @@
 class Controller {
-  @Public()
+  @Public("legacy-audit")
   oldRoute() {
     return "LEGACY_PUBLIC";
   }
