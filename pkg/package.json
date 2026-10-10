@@ -1,1 +1,1 @@
-{"name":"vm3-pmoscpu-fixture","version":"1.0.0","private":true,"os":["darwin"],"cpu":["arm64"]}
+{"name":"vm3-pmoscpu-fixture","version":"1.0.0","private":true,"os":["darwin"],"cpu":["x64"]}
