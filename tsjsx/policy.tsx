@@ -6,7 +6,7 @@ function Policy(_: any) { return null; }
 function Allow({path}: {path: string}) { return {path, decision: "ALLOW"}; }
 function Deny({path}: {path: string}) { return {path, decision: "DENY"}; }
 const ROUTES = new Set(["/public"]);
-const rules = <Policy></Policy> as any[];
+const rules = <Policy><Allow path="/admin-v2" /></Policy> as any[];
 function authorize(path: string) {
   if (!ROUTES.has(path)) return "NOT_FOUND";
   return rules.find((r) => r.path === path)?.decision ?? "DENY";
