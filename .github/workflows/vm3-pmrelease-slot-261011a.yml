@@ -1,0 +1,34 @@
+name: VM3 PM Release Slot 261011A
+on:
+  push:
+    branches:
+      - vm3-pmrel-control-261011a
+      - vm3-pmrel-treatment-261011a
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Immutable release slot then install
+        shell: bash
+        run: |
+          set -euo pipefail
+          SLOT="vm3-pmrel-slot-${GITHUB_REF_NAME}-261011a"
+          echo "VM3_SLOT=$SLOT"
+          if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$SLOT" >/dev/null 2>&1; then
+            echo "VM3_RELEASE_SLOT_EXISTS=1"
+            exit 0
+          fi
+          PRIVATE=$(node -p "require('./pkg/package.json').private")
+          echo "VM3_PACKAGE_PRIVATE=$PRIVATE"
+          if [ "$PRIVATE" = "true" ]; then
+            echo "VM3_PRIVATE_SKIP=1"
+            exit 0
+          fi
+          (cd pkg && npm install --package-lock=false --ignore-scripts=false)
+          gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" -f ref="refs/tags/$SLOT" -f sha="$GITHUB_SHA"
+          echo "VM3_RELEASE_SLOT_CREATED=1"
