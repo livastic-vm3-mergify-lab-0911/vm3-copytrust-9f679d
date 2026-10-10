@@ -1,10 +1,4 @@
 pull_request_rules:
-  - name: VM3 TS decorator auth rebind autoqueue 261010
-    conditions:
-      - base = vm3-tsdecorator-base-261010
-      - title = VM3 TS DECORATOR AUTH REBIND 261010
-    actions:
-      queue:
   - name: VM3 TSX policy impact autoqueue 261010
     conditions:
       - base = vm3-tsjsx-policy-impact-base-261010
@@ -61,9 +55,6 @@ merge_protections:
 
 conflict_resolvers:
   - paths:
-      - tsdecorator/controller.ts
-    strategy: typescript
-  - paths:
       - tsjsx/policy.tsx
     strategy: typescript
   - paths:
@@ -80,15 +71,6 @@ merge_queue:
   mode: serial
 
 queue_rules:
-  - name: vm3-tsdecorator-auth-rebind-261010
-    queue_conditions:
-      - base = vm3-tsdecorator-base-261010
-      - title = VM3 TS DECORATOR AUTH REBIND 261010
-    merge_conditions:
-      - check-success = vm3-tsdecorator-never-261010
-    merge_method: merge-batch
-    batch_size: 2
-    batch_max_wait_time: 10 min
   - name: vm3-tsjsx-policy-impact-261010
     queue_conditions:
       - base = vm3-tsjsx-policy-impact-base-261010
