@@ -8,7 +8,7 @@ __metadata:
 "lodash@npm:^4.17.0":
   version: 4.18.1
   resolution: "lodash@npm:4.18.1"
-  conditions: os=darwin & cpu=x64
+  conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
