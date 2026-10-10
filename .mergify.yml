@@ -71,14 +71,6 @@ merge_queue:
   mode: serial
 
 queue_rules:
-  - name: vm3-queued-update-race-261010
-    queue_conditions:
-      - base = vm3-queued-update-base-261010
-      - title = VM3 QUEUED UPDATE RACE 261010
-    merge_conditions:
-      - check-success = vm3-queued-update-never-261010
-    merge_method: merge
-    batch_size: 1
   - name: vm3-tsjsx-policy-impact-261010
     queue_conditions:
       - base = vm3-tsjsx-policy-impact-base-261010
