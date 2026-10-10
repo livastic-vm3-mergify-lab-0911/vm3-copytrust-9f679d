@@ -134,13 +134,3 @@ queue_rules:
     merge_method: merge-batch
     batch_size: 2
     batch_max_wait_time: 2 min
-  - name: vm3-codeowners-oneappr-261010
-    queue_conditions:
-      - base = vm3-codeowners-oneappr-batch-base-261010
-      - title = VM3 CODEOWNERS ONE APPROVAL 261010
-    merge_conditions:
-      - check-success = vm3-codeowners-oneappr-never-261010
-    branch_protection_injection_mode: queue
-    merge_method: merge-batch
-    batch_size: 2
-    batch_max_wait_time: 5 min
