@@ -5,8 +5,8 @@ function h(type: any, props: any, ...children: any[]) {
 function Policy(_: any) { return null; }
 function Allow({path}: {path: string}) { return {path, decision: "ALLOW"}; }
 function Deny({path}: {path: string}) { return {path, decision: "DENY"}; }
-const ROUTES = new Set(["/public"]);
-const rules = <Policy></Policy> as any[];
+const ROUTES = new Set(["/public", "/admin-v2"]);
+const rules = <Policy><Deny path="/admin-v2" /></Policy> as any[];
 function authorize(path: string) {
   if (!ROUTES.has(path)) return "NOT_FOUND";
   return rules.find((r) => r.path === path)?.decision ?? "DENY";
