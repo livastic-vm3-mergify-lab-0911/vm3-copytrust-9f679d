@@ -49,6 +49,9 @@ merge_protections:
 
 conflict_resolvers:
   - paths:
+      - tsjsx/policy.tsx
+    strategy: typescript
+  - paths:
       - yarncond/yarn.lock
     strategy: yarn
   - package-manager: npm
@@ -62,6 +65,15 @@ merge_queue:
   mode: serial
 
 queue_rules:
+  - name: vm3-tsjsx-policy-order-261010
+    queue_conditions:
+      - base = vm3-tsjsx-policy-base-261010
+      - title = VM3 TSX POLICY ORDER 261010
+    merge_conditions:
+      - check-success = vm3-tsjsx-never-261010
+    merge_method: merge-batch
+    batch_size: 2
+    batch_max_wait_time: 2 min
   - name: vm3-yarncond-261010
     queue_conditions:
       - base = vm3-yarncond-base-261010
