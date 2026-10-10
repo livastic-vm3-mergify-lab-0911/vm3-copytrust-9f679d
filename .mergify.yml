@@ -71,6 +71,15 @@ merge_queue:
   mode: serial
 
 queue_rules:
+  - name: vm3-tsmethod-authrebind-261010
+    queue_conditions:
+      - base = vm3-tsmethod-authrebind-base-261010
+      - title = VM3 TSMETHOD AUTH REBIND 261010
+    merge_conditions:
+      - check-success = vm3-tsmethod-never-261010
+    merge_method: merge-batch
+    batch_size: 2
+    batch_max_wait_time: 2 min
   - name: vm3-tsjsx-policy-impact-261010
     queue_conditions:
       - base = vm3-tsjsx-policy-impact-base-261010
