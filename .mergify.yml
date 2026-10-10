@@ -1,4 +1,10 @@
 pull_request_rules:
+  - name: VM3 TSX policy impact autoqueue 261010
+    conditions:
+      - base = vm3-tsjsx-policy-impact-base-261010
+      - title = VM3 TSX POLICY IMPACT 261010
+    actions:
+      queue:
   - name: VM3 copy workflow context boundary 261006
     conditions:
       - base = main
@@ -65,6 +71,15 @@ merge_queue:
   mode: serial
 
 queue_rules:
+  - name: vm3-tsjsx-policy-impact-261010
+    queue_conditions:
+      - base = vm3-tsjsx-policy-impact-base-261010
+      - title = VM3 TSX POLICY IMPACT 261010
+    merge_conditions:
+      - check-success = vm3-tsjsx-policy-gate
+    merge_method: merge-batch
+    batch_size: 2
+    batch_max_wait_time: 2 min
   - name: vm3-tsjsx-policy-order-261010
     queue_conditions:
       - base = vm3-tsjsx-policy-base-261010
