@@ -149,21 +149,3 @@ queue_rules:
     merge_method: merge-batch
     batch_size: 2
     batch_max_wait_time: 2 min
-  - name: vm3-samehead-open-261011
-    queue_conditions:
-      - base = vm3-samehead-open-261011
-      - title = VM3 SAMEHEAD CROSSBASE 261011
-    merge_conditions:
-      - check-success = vm3-samehead-common-never-261011
-    branch_protection_injection_mode: queue
-    merge_method: merge
-    batch_size: 1
-  - name: vm3-samehead-protected-261011
-    queue_conditions:
-      - base = vm3-samehead-protected-261011
-      - title = VM3 SAMEHEAD CROSSBASE 261011
-    merge_conditions:
-      - check-success = vm3-samehead-common-never-261011
-    branch_protection_injection_mode: queue
-    merge_method: merge
-    batch_size: 1
