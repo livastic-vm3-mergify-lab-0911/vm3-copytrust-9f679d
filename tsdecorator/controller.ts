@@ -1,6 +1,6 @@
 class Controller {
-  @Public()
-  oldRoute() {
-    return "LEGACY_PUBLIC";
+  @RequireAuth("admin")
+  adminRoute() {
+    return "ADMIN_SECRET";
   }
 }
