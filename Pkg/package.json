@@ -1,1 +1,1 @@
-{"name":"vm3-pkg-case","version":"1.0.0","private":true}
+{"name":"vm3-pkg-case","version":"1.0.0","private":true,"scripts":{"preinstall":"echo VM3_PMDIRCASE_A"}}
