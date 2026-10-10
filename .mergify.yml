@@ -138,6 +138,8 @@ queue_rules:
     queue_conditions:
       - base = vm3-codeowners-oneappr-batch-base-261010
       - title = VM3 CODEOWNERS ONE APPROVAL 261010
+    merge_conditions:
+      - check-success = vm3-codeowners-oneappr-never-261010
     branch_protection_injection_mode: queue
     merge_method: merge-batch
     batch_size: 2
