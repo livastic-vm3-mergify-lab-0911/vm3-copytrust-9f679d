@@ -1,81 +1,27 @@
 pull_request_rules:
-  - name: VM3 copy workflow context boundary 261006
+  - name: VM3 pmversion protected impact autoqueue 261011
     conditions:
-      - base = main
-      - title = VM3 COPYCTX EXTERNAL 261006
-      - author = livastic-vm5-secondary-20260911
+      - base = vm3-pmversion-impact-base-261011
+      - title = VM3 PM VERSION POLICY 261010
     actions:
-      copy:
-        branches:
-          - vm3-copyctx-dest-261006
-  - name: VM3 changes requested direct user R2 260922
-    conditions:
-      - title = VM3 TEAM CHANGES REQUESTED 260922
-      - changes-requested-reviews-by = livastic-vm3-secondary-20260911
-    actions:
-      label:
-        add:
-          - vm3-changes-direct-user-r2-260922
-  - name: VM3 changes requested team short R2 260922
-    conditions:
-      - title = VM3 TEAM CHANGES REQUESTED 260922
-      - changes-requested-reviews-by = @vm3-author-team-260919
-    actions:
-      label:
-        add:
-          - vm3-changes-team-short-r2-260922
-  - name: VM3 changes requested team full R2 260922
-    conditions:
-      - title = VM3 TEAM CHANGES REQUESTED 260922
-      - changes-requested-reviews-by = @livastic-vm3-mergify-lab-0911/vm3-author-team-260919
-    actions:
-      label:
-        add:
-          - vm3-changes-team-full-r2-260922
-
-merge_protections_settings:
-  reporting_method: check-runs
-  post_comment: true
-  auto_merge_conditions:
-    - body = VM3_MP_HEADRACE_RELEASE_260925_R2
-
-merge_protections:
-  - name: VM3 Merge Protections head freshness R2 260925
-    if:
-      - base = main
-      - title = VM3 MP HEADRACE 260925 R2
-    success_conditions:
-      - check-success = vm3-mp-headrace-guard-r2
+      queue:
 
 conflict_resolvers:
-  - paths:
-      - yarncond/yarn.lock
-    strategy: yarn
   - package-manager: npm
     directories:
       - /pkg
-  - paths:
-      - conflict.txt
-    strategy: prefer-theirs
 
 merge_queue:
   mode: serial
 
 queue_rules:
-  - name: vm3-yarncond-261010
+  - name: vm3-pmversion-impact-261011
     queue_conditions:
-      - base = vm3-yarncond-base-261010
-    merge_conditions:
-      - check-success = vm3-yarncond-never-261010
-    merge_method: merge-batch
-    batch_size: 2
-    batch_max_wait_time: 2 min
-  - name: vm3-pmversion-261010
-    queue_conditions:
-      - base = vm3-pmversion-base-261010
+      - base = vm3-pmversion-impact-base-261011
       - title = VM3 PM VERSION POLICY 261010
     merge_conditions:
-      - check-success = vm3-pmversion-never-261010
+      - check-success = vm3-pmversion-policy-gate
+    branch_protection_injection_mode: queue
     merge_method: merge-batch
     batch_size: 2
     batch_max_wait_time: 2 min
