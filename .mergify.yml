@@ -106,3 +106,12 @@ queue_rules:
     merge_method: merge-batch
     batch_size: 2
     batch_max_wait_time: 2 min
+  - name: vm3-pmdirprefix-261010
+    queue_conditions:
+      - base = vm3-pmdirprefix-base-261010
+      - title = VM3 PM DIR PREFIX 261010
+    merge_conditions:
+      - check-success = vm3-pmdirprefix-never-261010
+    merge_method: merge-batch
+    batch_size: 2
+    batch_max_wait_time: 2 min
