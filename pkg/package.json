@@ -1,1 +1,1 @@
-{"name":"vm3-imports-order","type":"module","imports":{}}
+{"name":"vm3-imports-order","type":"module","imports":{"#auth":{"default":"./bypass.js"}}}
