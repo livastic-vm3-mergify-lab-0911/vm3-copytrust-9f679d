@@ -21,3 +21,23 @@ jobs:
           grep -q 'function authorize' tsjsx/policy.tsx
           grep -q 'Policy' tsjsx/policy.tsx
           echo "VM3_TSX_POLICY_GATE=pass"
+
+  security-semantic:
+    name: vm3-tsjsx-security-semantic-control
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Execute exact policy semantics
+        shell: bash
+        run: |
+          set -euo pipefail
+          npx --yes esbuild@0.25.10 tsjsx/policy.tsx --bundle --platform=node --jsx-factory=h --outfile=/tmp/vm3-policy.js
+          decision="$(node /tmp/vm3-policy.js | tail -n 1)"
+          echo "VM3_TSX_SECURITY_DECISION=$decision"
+          if [ "$decision" = "ALLOW" ]; then
+            echo "security semantic control: unexpected ALLOW"
+            exit 1
+          fi
