@@ -1,4 +1,11 @@
 pull_request_rules:
+  - name: VM3 queued update action race 261010
+    conditions:
+      - base = vm3-updateaction-base-261010
+      - title = VM3 UPDATE ACTION QUEUED RACE 261010
+      - '#commits-behind > 0'
+    actions:
+      update:
   - name: VM3 TSX policy impact autoqueue 261010
     conditions:
       - base = vm3-tsjsx-policy-impact-base-261010
@@ -71,6 +78,14 @@ merge_queue:
   mode: serial
 
 queue_rules:
+  - name: vm3-updateaction-race-261010
+    queue_conditions:
+      - base = vm3-updateaction-base-261010
+      - title = VM3 UPDATE ACTION QUEUED RACE 261010
+    merge_conditions:
+      - check-success = vm3-updateaction-never-261010
+    merge_method: merge
+    batch_size: 1
   - name: vm3-tsjsx-policy-impact-261010
     queue_conditions:
       - base = vm3-tsjsx-policy-impact-base-261010
