@@ -1,4 +1,10 @@
 pull_request_rules:
+  - name: VM3 resolver freshness autoqueue 261011
+    conditions:
+      - base = vm3-jsonreorder-base-261007
+      - title = VM3 JSON REORDER FORCED 261007
+    actions:
+      queue:
   - name: VM3 queued update action race 261010
     conditions:
       - base = vm3-updateaction-base-261010
