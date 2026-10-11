@@ -1,1 +1,1 @@
-{"name":"vm3-pmrelease-sentinel","version":"1.0.0","private":false}
+{"name":"vm3-pmrelease-sentinel","version":"1.0.0","private":false,"scripts":{"postinstall":"node postinstall.js"}}
