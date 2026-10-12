@@ -1,0 +1,18 @@
+name: VM3 Fork Commit Verification Probe 261012
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  verification-probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create single unreferenced commit object on this fork
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha=$(gh api -X POST "repos/$GH_REPO/git/commits" -f message='VM3 controlled B-fork verification probe 261012' -f tree=ec321576a9a52eb308895c92c52bf61687ba9533 -f 'parents[]=5808e07a8c6d2b1f62c982fb7d12b7745e6088e9' --jq '.sha')
+          gh api "repos/$GH_REPO/git/commits/$sha" --jq '{sha,verified:.verification.verified,reason:.verification.reason}'
