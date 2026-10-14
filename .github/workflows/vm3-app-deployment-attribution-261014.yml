@@ -1,0 +1,16 @@
+name: VM3 Controlled App Deployment Attribution 261014
+on:
+  push:
+    branches:
+      - vm3-provenance-status-lab-261014
+permissions:
+  contents: read
+  deployments: write
+jobs:
+  app_provenance:
+    runs-on: ubuntu-latest
+    environment:
+      name: vm3-app-created-deployment-261014
+    steps:
+      - name: Harmless fixed sentinel
+        run: echo 'VM3_PROVENANCE_20261014_NO_SECRETS_NO_DEPLOY'
