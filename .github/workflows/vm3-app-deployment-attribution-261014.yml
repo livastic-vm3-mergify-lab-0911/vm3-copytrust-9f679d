@@ -9,8 +9,25 @@ permissions:
 jobs:
   app_provenance:
     runs-on: ubuntu-latest
-    environment:
-      name: vm3-app-created-deployment-261014
     steps:
-      - name: Harmless fixed sentinel
-        run: echo 'VM3_PROVENANCE_20261014_NO_SECRETS_NO_DEPLOY'
+      - name: Create synthetic GitHub App deployment status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const {owner, repo} = context.repo;
+            const response = await github.rest.repos.createDeployment({
+              owner, repo, ref: context.sha,
+              environment: "vm3-app-token-status-261014",
+              description: "VM3 controlled provenance failure baseline; no real deployment",
+              auto_merge: false,
+              required_contexts: [],
+              transient_environment: true,
+              production_environment: false,
+            });
+            await github.rest.repos.createDeploymentStatus({
+              owner, repo, deployment_id: response.data.id,
+              state: "failure",
+              description: "VM3 inert app-authored failure status",
+              auto_inactive: false,
+            });
+            core.info("VM3_APP_DEPLOYMENT_TEST_COMPLETE");
