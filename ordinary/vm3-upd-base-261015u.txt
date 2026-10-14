@@ -1,0 +1,1 @@
+VM3 controlled attacker-authored base-only inert canary
