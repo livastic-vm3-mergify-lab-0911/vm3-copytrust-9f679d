@@ -1,0 +1,38 @@
+name: VM3 Owner Controlled Provenance Guard 261014
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+    paths:
+      - ordinary/attack.txt
+permissions:
+  contents: read
+  pull-requests: read
+  checks: write
+jobs:
+  publish_trusted_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR filenames as data and publish trusted app result
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pr = context.payload.pull_request;
+            const files = await github.paginate(
+              github.rest.pulls.listFiles,
+              { owner, repo, pull_number: pr.number, per_page: 100 }
+            );
+            const marked = files.some(x => x.filename === 'ordinary/attack.txt');
+            const result = await github.rest.checks.create({
+              owner, repo,
+              name: 'vm3-owner-guard-261014',
+              head_sha: pr.head.sha,
+              status: 'completed',
+              conclusion: marked ? 'failure' : 'success',
+              output: {
+                title: 'VM3 owned canary protected file',
+                summary: marked ? 'OWNER_GUARD_DENY_261014' : 'OWNER_GUARD_ALLOW_261014'
+              }
+            });
+            core.info('Trusted app check published: ' + result.data.id);
