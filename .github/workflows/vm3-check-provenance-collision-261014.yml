@@ -1,0 +1,15 @@
+name: VM3 Controlled Check Identity Collision 261014
+on:
+  push:
+    branches:
+      - vm3-check-provenance-collision-261014
+permissions:
+  contents: read
+jobs:
+  vm3-provenance-collision-guard-261014:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deliberate isolated fail for provenance discriminator
+        run: |
+          echo VM3_CHECK_PROVENANCE_BASELINE_APP_FAILURE
+          exit 1
