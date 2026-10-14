@@ -59,6 +59,13 @@ merge_protections_settings:
     - body = VM3_MP_HEADRACE_RELEASE_260925_R2
 
 merge_protections:
+  - name: VM3 app-qualified failure collision 261014
+    if:
+      - base = main
+      - title = VM3 MP COLLISION GUARD 261014
+    success_conditions:
+      - check-success = @github-actions/boundary
+      - '-check-failure = @github-actions/vm3-isobar-security'
   - name: VM3 Merge Protections head freshness R2 260925
     if:
       - base = main
