@@ -59,6 +59,12 @@ merge_protections_settings:
     - body = VM3_MP_HEADRACE_RELEASE_260925_R2
 
 merge_protections:
+  - name: VM3 protected branch app-failure provenance 261014
+    if:
+      - base = vm3-mp-protected-collision-261014
+    success_conditions:
+      - check-success = @github-actions/vm3-mp-trusted-pass-261014
+      - '-check-failure = @github-actions/vm3-mp-trusted-fail-261014'
   - name: VM3 app-qualified failure collision 261014
     if:
       - base = main
