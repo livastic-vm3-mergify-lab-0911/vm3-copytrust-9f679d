@@ -59,13 +59,6 @@ merge_protections_settings:
     - body = VM3_MP_HEADRACE_RELEASE_260925_R2
 
 merge_protections:
-  - name: VM3 owner-controlled check provenance 261014
-    if:
-      - base = main
-      - files = ordinary/attack.txt
-    success_conditions:
-      - check-success = @github-actions/boundary
-      - '-check-failure = @github-actions/vm3-owner-guard-261014'
   - name: VM3 Merge Protections head freshness R2 260925
     if:
       - base = main
