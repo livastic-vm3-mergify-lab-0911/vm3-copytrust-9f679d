@@ -1,0 +1,6 @@
+{
+  "description": "Synthetic no-dependencies npm conflict resolver research; no scripts",
+  "name": "vm3-ky1-merge-queue-control",
+  "private": true,
+  "version": "1.0.2"
+}
