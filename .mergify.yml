@@ -66,6 +66,15 @@ merge_protections:
     success_conditions:
       - check-success = vm3-mp-headrace-guard-r2
 
+  - name: VM3 KBC1 app deployment gate 261016
+    if:
+      - base = vm3-kbc1-base-261016
+      - title = VM3 KBC1 App qualified deployment provenance 261016
+    success_conditions:
+      - deployment-success = @github-actions/vm3-kbc1-gha-ok-261016
+      - -deployment-failure = @github-actions/vm3-kbc1-gha-deny-261016
+
+
 conflict_resolvers:
   - paths:
       - vm3-json-reorder-policy.json
