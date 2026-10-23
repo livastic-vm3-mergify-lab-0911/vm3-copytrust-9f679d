@@ -66,6 +66,12 @@ merge_protections:
     success_conditions:
       - check-success = vm3-mp-headrace-guard-r2
 
+  - name: VM3 KAAA1 immutable file gate 261023
+    if:
+      - base = main
+    success_conditions:
+      - '-files ~= ^vm3-kaaa1-forbidden-file-261023[.]txt$'
+
 conflict_resolvers:
   - paths:
       - vm3-json-reorder-policy.json
