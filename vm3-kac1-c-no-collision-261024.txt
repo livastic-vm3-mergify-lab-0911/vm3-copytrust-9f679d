@@ -1,0 +1,1 @@
+KAC1 external fork independent SHA control; not a Mergify bypass.
