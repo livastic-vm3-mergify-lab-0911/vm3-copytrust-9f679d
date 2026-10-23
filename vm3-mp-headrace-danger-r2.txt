@@ -1,0 +1,1 @@
+KAC1 independent no-SHA-collision negative control; inert test path.
