@@ -1,0 +1,1 @@
+KBD1 SAME immutable file blob on fork and preseeded parent base; benign controlled fixture

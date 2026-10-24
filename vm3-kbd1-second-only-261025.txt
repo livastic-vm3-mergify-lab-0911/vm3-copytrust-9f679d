@@ -1,0 +1,1 @@
+KBD1 second delta available in both fork-source PRs; benign controlled fixture
