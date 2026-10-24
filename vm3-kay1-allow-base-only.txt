@@ -1,0 +1,1 @@
+Owner-allowed-base-only, inert fixture
