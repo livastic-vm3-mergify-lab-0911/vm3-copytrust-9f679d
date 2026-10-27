@@ -1,0 +1,1 @@
+KBT1 inert same-head commit marker, identical SHA shared by two owned true fork repositories.
