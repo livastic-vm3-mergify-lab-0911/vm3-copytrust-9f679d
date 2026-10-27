@@ -1,0 +1,1 @@
+KBW1 owned, harmless reviewed canary for old-ref shadow binding.
