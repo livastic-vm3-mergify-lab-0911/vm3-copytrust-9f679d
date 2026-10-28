@@ -1,1 +1,1 @@
-KCW1 controlled draft state target; disposable sandbox.
+KCX1 benign H2 revision from C fork after Draft-only dequeue; no owner reapproval.
