@@ -1,1 +1,1 @@
-KCW1 controlled draft state target; disposable sandbox.
+KCY1 C-owned subsequent HEAD commit while PR stays Ready, no new Owner command. Oct 28 2026.
