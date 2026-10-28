@@ -1,0 +1,1 @@
+KDK1 inert excluded side-commit marker; must not appear in final merge tree.
