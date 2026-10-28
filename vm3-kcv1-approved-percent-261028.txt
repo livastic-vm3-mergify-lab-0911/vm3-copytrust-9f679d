@@ -1,0 +1,1 @@
+KCV1 APPROVED percent-encoded literal ref SHA in owned sandbox.
