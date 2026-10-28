@@ -1,0 +1,1 @@
+KDC1 APPROVED Git branch named exactly as 12-hex H2 prefix but independently points to H1.
