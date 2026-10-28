@@ -1,0 +1,1 @@
+KDF1 target: inert, C-owned GitHub fork, sandbox only.
